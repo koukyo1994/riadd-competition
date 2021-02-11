@@ -134,6 +134,7 @@ dmypy.json
 *.jpg
 *.tif
 *.jpeg
+*.csv
 
 # paper
 paper/
