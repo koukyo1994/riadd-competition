@@ -1,3 +1,0 @@
-[submodule "data/streamlit-image"]
-	path = data/streamlit-image
-	url = git@github.com:/koukyo1994/streamlit-image
