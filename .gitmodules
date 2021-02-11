@@ -1,0 +1,3 @@
+[submodule "streamlit-image"]
+	path = streamlit-image
+	url = git@github.com:/koukyo1994/streamlit-image
