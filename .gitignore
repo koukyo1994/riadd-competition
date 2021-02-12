@@ -135,6 +135,7 @@ dmypy.json
 *.tif
 *.jpeg
 *.csv
+*.ipynb
 
 # paper
 paper/
