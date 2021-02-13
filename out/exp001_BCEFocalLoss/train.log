@@ -1,0 +1,63 @@
+====================
+Fold 0 Training
+====================
+====================
+Fold 1 Training
+====================
+====================
+Fold 2 Training
+====================
+====================
+Fold 3 Training
+====================
+====================
+Fold 4 Training
+====================
+====================
+Fold 0 OOF
+====================
+Fold 0 AUC: 0.95249
+Fold 0 mAP: 0.55016
+Fold 0 Multi-disease Avg Score: 0.75133
+====================
+Fold 1 OOF
+====================
+Fold 1 AUC: 0.95050
+Fold 1 mAP: 0.48116
+Fold 1 Multi-disease Avg Score: 0.71583
+====================
+Fold 2 OOF
+====================
+Fold 2 AUC: 0.94949
+Fold 2 mAP: 0.5163
+Fold 2 Multi-disease Avg Score: 0.73289
+====================
+Fold 3 OOF
+====================
+Fold 3 AUC: 0.94687
+Fold 3 mAP: 0.53591
+Fold 3 Multi-disease Avg Score: 0.74139
+====================
+Fold 4 OOF
+====================
+Fold 4 AUC: 0.93616
+Fold 4 mAP: 0.45212
+Fold 4 Multi-disease Avg Score: 0.69414
+AUC: 0.94517
+mAP: 0.44471
+Multi-disease Avg Score: 0.69494
+====================
+Fold 0 inference
+====================
+====================
+Fold 1 inference
+====================
+====================
+Fold 2 inference
+====================
+====================
+Fold 3 inference
+====================
+====================
+Fold 4 inference
+====================
