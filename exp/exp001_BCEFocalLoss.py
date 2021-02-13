@@ -728,8 +728,8 @@ class CompetitionScore(Callback):
         targ = runner.input[self.input_key].detach().cpu().numpy()
         out = torch.sigmoid(runner.output[self.output_key].detach()).cpu().numpy()
 
-        self.prediction.append(targ)
-        self.target.append(out)
+        self.prediction.append(out)
+        self.target.append(targ)
 
         y_true_auc = targ[:, 0].reshape(-1)
         y_pred_auc = out[:, 0].reshape(-1)
