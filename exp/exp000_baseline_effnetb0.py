@@ -649,8 +649,9 @@ class mAPCallback(Callback):
         self.prediction.append(y_pred)
         self.target.append(y_true)
 
-        score = metrics.average_precision_score(y_true=y_true, y_score=y_pred)
-        runner.batch_metrics[self.prefix] = score
+        score = metrics.average_precision_score(y_true=y_true, y_score=y_pred, average=None)
+        score = np.nan_to_num(score, nan=0.0)
+        runner.batch_metrics[self.prefix] = np.mean(score)
 
     def on_loader_end(self, runner: IRunner):
         y_pred = np.concatenate(self.prediction, axis=0)
