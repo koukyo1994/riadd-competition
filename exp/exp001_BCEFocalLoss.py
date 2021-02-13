@@ -37,7 +37,7 @@ class CFG:
     ######################
     seed = 1213
     epochs = 55
-    train = True
+    train = False
     oof = True
     inference = True
     folds = [0, 1, 2, 3, 4]
@@ -943,13 +943,13 @@ if __name__ == "__main__":
             auc = metrics.roc_auc_score(y_true=y_true_auc, y_score=y_pred_auc)
             logger.info(f"Fold {i} AUC: {auc:.5f}")
 
-            y_true_map = targ_array[:, 1:]
-            y_pred_map = pred_array[:, 1:]
-            mAP = metrics.average_precision_score(y_true=y_true_map, y_score=y_pred_map)
-            logger.info(f"Fold {i} mAP: {mAP:.5g}")
+            y_true_mdas = targ_array[:, 1:]
+            y_pred_mdas = pred_array[:, 1:]
+            mdas_score = multi_disease_avg_score(y_true_mdas, y_pred_mdas)
+            logger.info(f"Fold {i} Multi-disease Avg Score: {mdas_score:.5g}")
 
-            score = 0.5 * auc + 0.5 * mAP
-            logger.info(f"Fold {i} Multi-disease Avg Score: {score:.5f}")
+            score = 0.5 * auc + 0.5 * mdas_score
+            logger.info(f"Fold {i} Final score: {score:.5f}")
 
         pred_df = pd.concat(prediction_dfs, axis=0).reset_index(drop=True)
         targ_df = pd.concat(targets_dfs, axis=0).reset_index(drop=True)
@@ -959,13 +959,13 @@ if __name__ == "__main__":
         auc = metrics.roc_auc_score(y_true=y_true_auc, y_score=y_pred_auc)
         logger.info(f"AUC: {auc:.5f}")
 
-        y_true_map = targ_df[CFG.target_columns[1:]].values
-        y_pred_map = pred_df[CFG.target_columns[1:]].values
-        mAP = metrics.average_precision_score(y_true=y_true_map, y_score=y_pred_map)
-        logger.info(f"mAP: {mAP:.5f}")
+        y_true_mdas = targ_df[CFG.target_columns[1:]].values
+        y_pred_mdas = pred_df[CFG.target_columns[1:]].values
+        mdas_score = multi_disease_avg_score(y_true_mdas, y_pred_mdas)
+        logger.info(f"Multi-disease Avg Score: {mdas_score:.5g}")
 
-        score = 0.5 * auc + 0.5 * mAP
-        logger.info(f"Multi-disease Avg Score: {score:.5f}")
+        score = 0.5 * auc + 0.5 * mdas_score
+        logger.info(f"Final score: {score:.5f}")
 
         pred_df.to_csv(logdir / "oof.csv", index=False)
 
