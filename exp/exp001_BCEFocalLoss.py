@@ -662,6 +662,21 @@ class AUCCallback(Callback):
             runner.epoch_metrics["train_epoch_" + self.prefix] = score
 
 
+def multi_disease_avg_score(y_true: np.ndarray, y_pred: np.ndarray):
+    map_score = metrics.average_precision_score(y_true=y_true, y_score=y_pred, average=None)
+    map_score = np.nan_to_num(map_score, nan=0.0).mean()
+
+    scores = []
+    for i in range(len(y_true[0])):
+        if y_true[:, i].mean() > 0.0:
+            auc = metrics.roc_auc_score(y_true=y_true[:, i], y_score=y_pred[:, i])
+            scores.append(auc)
+        else:
+            scores.append(0.0)
+    auc_score = np.mean(scores)
+    return 0.5 * map_score + 0.5 * auc_score
+
+
 class MultiDiseaseAvgScore(Callback):
     def __init__(self, input_key: str = "targets", output_key: str = "logits", prefix="MdAS"):
         super().__init__(CallbackOrder.Metric)
@@ -683,11 +698,7 @@ class MultiDiseaseAvgScore(Callback):
         self.prediction.append(y_pred)
         self.target.append(y_true)
 
-        map_score = metrics.average_precision_score(y_true=y_true, y_score=y_pred, average=None)
-        map_score = np.nan_to_num(map_score, nan=0.0).mean()
-
-        auc_score = metrics.roc_auc_score(y_true=y_true, y_score=y_pred, average=None)
-        auc_score = np.nan_to_num(auc_score, nan=0.0).mean()
+        score = multi_disease_avg_score(y_true=y_true, y_pred=y_pred)
 
         runner.batch_metrics[self.prefix] = score
 
@@ -695,10 +706,7 @@ class MultiDiseaseAvgScore(Callback):
         y_pred = np.concatenate(self.prediction)
         y_true = np.concatenate(self.target)
 
-        map_score = metrics.average_precision_score(y_true=y_true, y_score=y_pred, average="macro")
-        auc_score = metrics.roc_auc_score(y_true=y_true, y_score=y_pred, average="macro")
-
-        score = 0.5 * auc_score + 0.5 * map_score
+        score = multi_disease_avg_score(y_true, y_pred)
         if runner.is_valid_loader:
             runner.epoch_metrics[runner.valid_loader + "_epoch_" + self.prefix] = score
         else:
@@ -731,13 +739,7 @@ class CompetitionScore(Callback):
 
         auc_score = metrics.roc_auc_score(y_true=y_true_auc, y_score=y_pred_auc)
 
-        map_score = metrics.average_precision_score(y_true=y_true_mdas, y_score=y_pred_mdas, average=None)
-        map_score = np.nan_to_num(map_score, nan=0.0).mean()
-
-        mdas_auc_score = metrics.roc_auc_score(y_true=y_true_mdas, y_score=y_pred_mdas, average=None)
-        mdas_auc_score = np.nan_to_num(mdas_auc_score, nan=0.0).mean()
-
-        mdas = 0.5 * map_score + 0.5 * mdas_auc_score
+        mdas = multi_disease_avg_score(y_true_mdas, y_pred_mdas)
 
         score = 0.5 * auc_score + 0.5 * mdas
 
@@ -755,10 +757,7 @@ class CompetitionScore(Callback):
 
         auc_score = metrics.roc_auc_score(y_true=y_true_auc, y_score=y_pred_auc)
 
-        map_score = metrics.average_precision_score(y_true=y_true_mdas, y_score=y_pred_mdas, average="macro")
-        mdas_auc_score = metrics.roc_auc_score(y_true=y_true_mdas, y_score=y_pred_mdas, average="macro")
-
-        mdas_score = 0.5 * mdas_auc_score + 0.5 * map_score
+        mdas_score = multi_disease_avg_score(y_true_mdas, y_pred_mdas)
         score = 0.5 * auc_score + 0.5 * mdas_score
         if runner.is_valid_loader:
             runner.epoch_metrics[runner.valid_loader + "_epoch_" + self.prefix] = score
