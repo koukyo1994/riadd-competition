@@ -241,6 +241,7 @@ class TestDataset(torchdata.Dataset):
 def get_transforms(img_size: int, mode="train"):
     if mode == "train":
         return A.Compose([
+            A.Resize(img_size, img_size),
             A.Normalize(
                 mean=[0.485, 0.456, 0.4406],
                 std=[0.229, 0.224, 0.225],
@@ -249,6 +250,7 @@ def get_transforms(img_size: int, mode="train"):
         ])
     elif mode == "valid":
         return A.Compose([
+            A.Resize(img_size, img_size),
             A.Normalize(
                 mean=[0.485, 0.456, 0.4406],
                 std=[0.229, 0.224, 0.225],
@@ -257,6 +259,7 @@ def get_transforms(img_size: int, mode="train"):
         ])
     else:
         return A.Compose([
+            A.Resize(img_size, img_size),
             A.Normalize(
                 mean=[0.485, 0.456, 0.4406],
                 std=[0.229, 0.224, 0.225],
