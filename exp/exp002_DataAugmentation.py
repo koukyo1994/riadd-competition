@@ -42,7 +42,7 @@ class CFG:
     inference = True
     folds = [0, 1, 2, 3, 4]
     img_size = 320
-    main_metric = "epoch_MdAS"
+    main_metric = "epoch_score"
     minimize_metric = False
 
     ######################
