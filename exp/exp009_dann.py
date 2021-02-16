@@ -109,7 +109,7 @@ class CFG:
     ######################
     loss_name = "DANNLoss"
     loss_params: dict = {
-        "weights": [1.0, 1.0]
+        "weights": [1.0, 0.1]
     }
 
     ######################
@@ -741,9 +741,6 @@ class DomainAccuracyCallback(Callback):
         targ = runner.input[self.input_key].detach().cpu().numpy()
         out = runner.output[self.output_key].detach()[:, -3:]
         out = torch.softmax(out, dim=1).cpu().numpy()
-
-        import pdb
-        pdb.set_trace()
 
         y_true = targ.reshape(-1)
         y_pred = out[:, -3:].argmax(axis=1).reshape(-1)
