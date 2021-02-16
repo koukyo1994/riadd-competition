@@ -107,8 +107,10 @@ class CFG:
     ######################
     # Criterion #
     ######################
-    loss_name = "BCEFocalLoss"
-    loss_params: dict = {}
+    loss_name = "DANNLoss"
+    loss_params: dict = {
+        "weights": [1.0, 1.0]
+    }
 
     ######################
     # Optimizer #
@@ -229,14 +231,19 @@ class TrainDataset(torchdata.Dataset):
             augmented = self.transform(image=image)
             image = augmented["image"]
 
-        label = self.labels[index].tolist()
-        domain_label = self.domain_labels[index]
-        label = np.array(label + [domain_label])
-        target = torch.from_numpy(label).float()
+        label = torch.from_numpy(self.labels[index]).float()
+        domain_label_str = self.domain_labels[index]
+        if domain_label_str == "C1":
+            domain_label = torch.tensor([1.0, 0.0, 0.0]).float()
+        elif domain_label_str == "C2":
+            domain_label = torch.tensor([0.0, 1.0, 0.0]).float()
+        else:
+            domain_label = torch.tensor([0.0, 0.0, 1.0]).float()
         return {
             "ID": filename,
             "image": image,
-            "targets": target
+            "targets": label,
+            "domain_targets": domain_label
         }
 
 
@@ -377,7 +384,7 @@ class TimmModel(nn.Module):
             self.avg_pool = nn.AdaptiveAvgPool2d()
         self.dropout = nn.Dropout(0.3)
         self.classifier = nn.Linear(in_features, num_classes)
-        self.domain_classifier = nn.Linear(in_features, 1)
+        self.domain_classifier = nn.Linear(in_features, 3)
 
         self.init_layer()
 
@@ -675,8 +682,24 @@ class BCEFocalLoss(nn.Module):
         return loss
 
 
+class DANNLoss(nn.Module):
+    def __init__(self, alpha=0.25, gamma=2.0, weights=[1.0, 1.0]):
+        super().__init__()
+        self.bcefocal = BCEFocalLoss(alpha=alpha, gamma=gamma)
+        self.ce = nn.CrossEntropyLoss()
+        self.weights = weights
+
+    def forward(self, preds, targets, domain_targets):
+        class_pred = preds[:, :-3]
+        domain_pred = preds[:, -3:]
+        loss = self.bcefocal(class_pred, targets)
+        domain_loss = self.ce(domain_pred, domain_targets)
+        return self.weights[0] * loss + self.weights[1] * domain_loss
+
+
 __CRITERIONS__ = {
     "BCEFocalLoss": BCEFocalLoss,
+    "DANNLoss": DANNLoss,
 }
 
 
@@ -703,8 +726,8 @@ class SchedulerCallback(Callback):
             state.scheduler.step()
 
 
-class DomainAUCCallback(Callback):
-    def __init__(self, input_key: str = "targets", output_key: str = "logits", prefix="domain_auc"):
+class DomainAccuracyCallback(Callback):
+    def __init__(self, input_key: str = "domain_targets", output_key: str = "logits", prefix="domain_acc"):
         super().__init__(CallbackOrder.Metric)
         self.input_key = input_key
         self.output_key = output_key
@@ -716,21 +739,22 @@ class DomainAUCCallback(Callback):
 
     def on_batch_end(self, runner: IRunner):
         targ = runner.input[self.input_key].detach().cpu().numpy()
-        out = torch.sigmoid(runner.output[self.output_key].detach()).cpu().numpy()
+        out = runner.output[self.output_key].detach()[:, -3:]
+        out = torch.softmax(out, dim=1).cpu().numpy()
 
-        y_true = targ[:, -1].reshape(-1)
-        y_pred = out[:, -1].reshape(-1)
+        y_true = targ.reshape(-1)
+        y_pred = out[:, -3:].argmax(axis=1).reshape(-1)
 
         self.prediction.append(y_pred)
         self.target.append(y_true)
 
-        score = metrics.roc_auc_score(y_true=y_true, y_score=y_pred)
+        score = metrics.accuracy_score(y_true=y_true, y_pred=y_pred)
         runner.batch_metrics[self.prefix] = score
 
     def on_loader_end(self, runner: IRunner):
         y_pred = np.concatenate(self.prediction)
         y_true = np.concatenate(self.target)
-        score = metrics.roc_auc_score(y_true=y_true, y_score=y_pred)
+        score = metrics.accuracy_score(y_true=y_true, y_pred=y_pred)
         if runner.is_valid_loader:
             runner.epoch_metrics[runner.valid_loader + "_epoch_" + self.prefix] = score
         else:
@@ -881,14 +905,22 @@ def get_callbacks():
             AUCCallback(),
             MultiDiseaseAvgScore(),
             CompetitionScore(),
-            DomainAUCCallback()
+            DomainAccuracyCallback()
+        ]
+    elif CFG.loss_name == "DANNLoss":
+        return [
+            SchedulerCallback(),
+            AUCCallback(),
+            MultiDiseaseAvgScore(),
+            CompetitionScore(),
+            DomainAccuracyCallback()
         ]
     else:
         return [
             AUCCallback(),
             MultiDiseaseAvgScore(),
             CompetitionScore(),
-            DomainAUCCallback()
+            DomainAccuracyCallback()
         ]
 
 
@@ -903,7 +935,7 @@ class SAMRunner(Runner):
         input_, target = batch["image"], batch["targets"]
 
         input_ = input_.to(self.device)
-        target = target.to(device)
+        target = target.to(self.device)
 
         out = self.model(input_)
 
@@ -923,9 +955,34 @@ class SAMRunner(Runner):
             self.optimizer.second_step(zero_grad=True)
 
 
+class DANNRunner(Runner):
+    def _handle_batch(self, batch):
+        input_, target, domain_target = batch["image"], batch["targets"], batch["domain_targets"]
+
+        input_ = input_.to(self.device)
+        target = target.to(self.device)
+        domain_target = domain_target.to(self.device)
+
+        out = self.model(input_)
+
+        loss = self.criterion(out, target, domain_target)
+        self.batch_metrics.update({
+            "loss": loss
+        })
+
+        self.input = batch
+        self.output = {"logits": out}
+        if self.is_train_loader:
+            loss.backward()
+            self.optimizer.step()
+            self.optimizer.zero_grad()
+
+
 def get_runner(device: torch.device):
     if CFG.optimizer_name == "SAM":
         return SAMRunner(device=device)
+    elif CFG.loss_name == "DANNLoss":
+        return DANNRunner(device=device)
     else:
         return SupervisedRunner(device=device, input_key="image", input_target_key="targets")
 
@@ -1003,6 +1060,7 @@ if __name__ == "__main__":
         logger = init_logger(log_file=logdir / "oof.log")
         prediction_dfs = []
         targets_dfs = []
+        domain_dfs = []
         for i, (_, val_idx) in enumerate(splitter.split(train, y=train[CFG.target_columns])):
             if i not in CFG.folds:
                 continue
@@ -1026,49 +1084,67 @@ if __name__ == "__main__":
             model = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best.pth").to(device)
             predictions = []
             targets = []
+            domain_preds = []
+            domain_targets = []
             ids = []
             for batch in tqdm(val_loader, desc=f"fold{i} oof"):
                 input_ = batch["image"]
                 label = batch["targets"]
+                domain_label = batch["domain_targets"]
                 id_ = batch["ID"]
                 input_ = input_.to(device)
                 targets.append(label.cpu().numpy())
+                domain_targets.append(domain_label.cpu().numpy())
                 ids.extend(id_.cpu().numpy().tolist())
                 with torch.no_grad():
                     output = model(input_).detach()
-                predictions.append(torch.sigmoid(output).cpu().numpy())
+
+                disease_pred = torch.sigmoid(output[:, :-3]).cpu().numpy()
+                domain_pred = torch.softmax(output[:, -3:], dim=1).cpu().numpy()
+                predictions.append(disease_pred)
+                domain_preds.append(domain_pred.argmax(axis=1).reshape(-1))
 
             pred_array = np.concatenate(predictions, axis=0)
-            pred_df = pd.DataFrame(pred_array, columns=CFG.target_columns + ["camera"])
+            pred_df = pd.DataFrame(pred_array, columns=CFG.target_columns)
             pred_df["ID"] = ids
 
             targ_array = np.concatenate(targets, axis=0)
-            targ_df = pd.DataFrame(targ_array, columns=CFG.target_columns + ["camera"])
+            targ_df = pd.DataFrame(targ_array, columns=CFG.target_columns)
             targ_df["ID"] = ids
+
+            domain_pred_array = np.concatenate(domain_preds, axis=0)
+            domain_targ_array = np.concatenate(domain_targets, axis=0)
+            domain_df = pd.DataFrame({
+                "ID": ids,
+                "domain_pred": domain_pred_array,
+                "domain_target": domain_targ_array
+            })
 
             prediction_dfs.append(pred_df)
             targets_dfs.append(targ_df)
+            domain_dfs.append(domain_df)
 
             y_true_auc = targ_array[:, 0].reshape(-1)
             y_pred_auc = pred_array[:, 0].reshape(-1)
             auc = metrics.roc_auc_score(y_true=y_true_auc, y_score=y_pred_auc)
             logger.info(f"Fold {i} AUC: {auc:.5f}")
 
-            y_true_mdas = targ_array[:, 1:len(CFG.target_columns)]
-            y_pred_mdas = pred_array[:, 1:len(CFG.target_columns)]
+            y_true_mdas = targ_array[:, 1:]
+            y_pred_mdas = pred_array[:, 1:]
             mdas_score = multi_disease_avg_score(y_true_mdas, y_pred_mdas)
             logger.info(f"Fold {i} Multi-disease Avg Score: {mdas_score:.5g}")
 
             score = 0.5 * auc + 0.5 * mdas_score
             logger.info(f"Fold {i} Final score: {score:.5f}")
 
-            y_true_domain = targ_array[:, -1].reshape(-1)
-            y_pred_domain = pred_array[:, -1].reshape(-1)
-            domain_auc = metrics.roc_auc_score(y_true=y_true_domain, y_pred=y_pred_domain)
-            logger.info(f"Fold {i} Domain AUC: {auc:.5f}")
+            y_true_domain = domain_targ_array.reshape(-1)
+            y_pred_domain = domain_pred_array.reshape(-1)
+            domain_acc = metrics.accuracy_score(y_true=y_true_domain, y_pred=y_pred_domain)
+            logger.info(f"Fold {i} Domain Acc: {domain_acc:.5f}")
 
         pred_df = pd.concat(prediction_dfs, axis=0).reset_index(drop=True)
         targ_df = pd.concat(targets_dfs, axis=0).reset_index(drop=True)
+        domain_df = pd.concat(domain_dfs, axis=0).reset_index(drop=True)
 
         y_true_auc = targ_df[CFG.target_columns[0]].values.reshape(-1)
         y_pred_auc = pred_df[CFG.target_columns[0]].values.reshape(-1)
@@ -1083,10 +1159,10 @@ if __name__ == "__main__":
         score = 0.5 * auc + 0.5 * mdas_score
         logger.info(f"Final score: {score:.5f}")
 
-        y_true_domain = targ_df["camera"].values.reshape(-1)
-        y_pred_domain = pred_df["camera"].values.reshape(-1)
-        domain_auc = metrics.roc_auc_score(y_true=y_true_domain, y_pred=y_pred_domain)
-        logger.info(f"Fold {i} Domain AUC: {auc:.5f}")
+        y_true_domain = domain_df["domain_target"].values.reshape(-1)
+        y_pred_domain = domain_df["domain_pred"].values.reshape(-1)
+        domain_acc = metrics.accuracy_score(y_true=y_true_domain, y_pred=y_pred_domain)
+        logger.info(f"Fold {i} Domain Acc: {domain_acc:.5f}")
 
         pred_df.to_csv(logdir / "oof.csv", index=False)
 
@@ -1112,8 +1188,8 @@ if __name__ == "__main__":
                 id_ = batch["ID"]
                 ids.extend(id_.cpu().numpy().tolist())
                 with torch.no_grad():
-                    output = model(input_).detach()
-                predictions.append(torch.sigmoid(output).cpu().numpy()[:, :-1])
+                    output = model(input_).detach()[:, :-3]
+                predictions.append(torch.sigmoid(output).cpu().numpy())
 
             pred_array = np.concatenate(predictions, axis=0)
             pred_df = pd.DataFrame({
