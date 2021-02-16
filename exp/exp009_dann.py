@@ -234,11 +234,11 @@ class TrainDataset(torchdata.Dataset):
         label = torch.from_numpy(self.labels[index]).float()
         domain_label_str = self.domain_labels[index]
         if domain_label_str == "C1":
-            domain_label = torch.tensor([1.0, 0.0, 0.0]).float()
+            domain_label = 0
         elif domain_label_str == "C2":
-            domain_label = torch.tensor([0.0, 1.0, 0.0]).float()
+            domain_label = 1
         else:
-            domain_label = torch.tensor([0.0, 0.0, 1.0]).float()
+            domain_label = 2
         return {
             "ID": filename,
             "image": image,
