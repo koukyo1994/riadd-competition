@@ -692,8 +692,6 @@ class DANNLoss(nn.Module):
     def forward(self, preds, targets, domain_targets):
         class_pred = preds[:, :-3]
         domain_pred = preds[:, -3:]
-        import pdb
-        pdb.set_trace()
         loss = self.bcefocal(class_pred, targets)
         domain_loss = self.ce(domain_pred, domain_targets)
         return self.weights[0] * loss + self.weights[1] * domain_loss
@@ -743,6 +741,9 @@ class DomainAccuracyCallback(Callback):
         targ = runner.input[self.input_key].detach().cpu().numpy()
         out = runner.output[self.output_key].detach()[:, -3:]
         out = torch.softmax(out, dim=1).cpu().numpy()
+
+        import pdb
+        pdb.set_trace()
 
         y_true = targ.reshape(-1)
         y_pred = out[:, -3:].argmax(axis=1).reshape(-1)
