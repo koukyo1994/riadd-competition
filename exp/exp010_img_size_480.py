@@ -696,7 +696,7 @@ class AUCCallback(Callback):
 
         self.prediction.append(y_pred)
         self.target.append(y_true)
-        if y_true.mean() > 0:
+        if 1 > y_true.mean() > 0:
             score = metrics.roc_auc_score(y_true=y_true, y_score=y_pred)
         else:
             score = 0.0
@@ -787,7 +787,7 @@ class CompetitionScore(Callback):
         y_true_mdas = targ[:, 1:]
         y_pred_mdas = out[:, 1:]
 
-        if y_true_auc.mean() > 0:
+        if 1 > y_true_auc.mean() > 0:
             auc_score = metrics.roc_auc_score(y_true=y_true_auc, y_score=y_pred_auc)
         else:
             auc_score = 0.0
