@@ -692,6 +692,8 @@ class DANNLoss(nn.Module):
     def forward(self, preds, targets, domain_targets):
         class_pred = preds[:, :-3]
         domain_pred = preds[:, -3:]
+        import pdb
+        pdb.set_trace()
         loss = self.bcefocal(class_pred, targets)
         domain_loss = self.ce(domain_pred, domain_targets)
         return self.weights[0] * loss + self.weights[1] * domain_loss
