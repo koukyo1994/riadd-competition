@@ -1008,7 +1008,8 @@ if __name__ == "__main__":
             predictions = []
             targets = []
             ids = []
-            for i in range(CFG.n_tta):
+            for tta_id in range(CFG.n_tta):
+                logger.info(f"TTA: {tta_id}")
                 for batch in tqdm(val_loader, desc=f"fold{i} oof"):
                     input_ = batch["image"]
                     label = batch["targets"]
@@ -1081,7 +1082,8 @@ if __name__ == "__main__":
             model = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best.pth").to(device)
             predictions = []
             ids = []
-            for i in range(CFG.n_tta):
+            for tta_id in range(CFG.n_tta):
+                logger.info(f"TTA: {tta_id}")
                 for batch in tqdm(test_loader, desc=f"fold{i} inference"):
                     input_ = batch["image"].to(device)
                     id_ = batch["ID"]
