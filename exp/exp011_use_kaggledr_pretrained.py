@@ -178,8 +178,9 @@ def prepare_model_from_pretrained(model, path: Path, model_state_dict_key="state
     state_dict = ckpt[model_state_dict_key]
     model_state_dict = {}
     for key in state_dict:
+        weight = state_dict[key]
         key = key.replace("model", "base_model")
-        model_state_dict[key] = state_dict[key]
+        model_state_dict[key] = weight
 
     in_features = model_state_dict["base_model.classifier.weights"].size(1)
     num_classes = model.base_model.classifier.out_features
