@@ -1,0 +1,130 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.10.19
+    framework: lightning
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.8.3
+    t:
+      1:
+      - 1
+      - 5
+      - 9
+      2:
+      - 1
+      - 5
+      - 9
+      4: 3.8.3
+      5: 0.10.19
+base/debug:
+  desc: null
+  value: false
+base/n_fold:
+  desc: null
+  value: 4
+base/num_workers:
+  desc: null
+  value: 20
+base/oof:
+  desc: null
+  value: false
+base/print_freq:
+  desc: null
+  value: 100
+base/seed:
+  desc: null
+  value: 42
+base/target_cols:
+  desc: null
+  value:
+  - level
+base/target_size:
+  desc: null
+  value: 1
+base/train:
+  desc: null
+  value: true
+base/train_path:
+  desc: null
+  value: ./data/KaggleDR/resized_train_cropped/resized_train_cropped
+base/trn_fold:
+  desc: null
+  value:
+  - 0
+fold:
+  desc: null
+  value: 0
+loss/name:
+  desc: null
+  value: MSELoss
+model/batch_size:
+  desc: null
+  value: 128
+model/epochs:
+  desc: null
+  value: 35
+model/model_name:
+  desc: null
+  value: tf_efficientnet_b0_ns
+model/pretrained:
+  desc: null
+  value: true
+model/size:
+  desc: null
+  value: 320
+optimizer/name:
+  desc: null
+  value: AdamW
+optimizer/param/amsgrad:
+  desc: null
+  value: false
+optimizer/param/lr:
+  desc: null
+  value: 0.005
+optimizer/param/weight_decay:
+  desc: null
+  value: 1.0e-06
+rand:
+  desc: null
+  value: 90437
+scheduler/name:
+  desc: null
+  value: CosineAnnealingLR
+scheduler/param/T_max:
+  desc: null
+  value: 10
+scheduler/param/eta_min:
+  desc: null
+  value: 0
+scheduler/param/last_epoch:
+  desc: null
+  value: -1
+split/name:
+  desc: null
+  value: StratifiedKFold
+split/param/n_splits:
+  desc: null
+  value: 4
+split/param/random_state:
+  desc: null
+  value: 1212
+split/param/shuffle:
+  desc: null
+  value: true
+wandb/name:
+  desc: null
+  value: kaggle-dr-pretrain-simple
+wandb/project:
+  desc: null
+  value: kaggle-dr-pretrain
+wandb/tags:
+  desc: null
+  value:
+  - tf_efficientnet_b0_ns
+  - kaggle dr
+wandb/use:
+  desc: null
+  value: true
