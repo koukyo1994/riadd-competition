@@ -741,7 +741,7 @@ class DomainAccuracyCallback(Callback):
         out = runner.output[self.output_key].detach()[:, -3:]
         out = torch.softmax(out, dim=1).cpu().numpy()
 
-        y_true = targ.reshape(-1)
+        y_true = targ.argmax(axis=1).reshape(-1)
         y_pred = out[:, -3:].argmax(axis=1).reshape(-1)
 
         self.prediction.append(y_pred)
