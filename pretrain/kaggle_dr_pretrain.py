@@ -348,7 +348,7 @@ def train_loop(cfg, folds, fold):
     model = Model(cfg)
 
     checkpoint_callback = ModelCheckpoint(
-        filepath=Path("out") / __file__.__name__.split("/")[-1].replace(".py", "") / f"fold-{fold}",
+        filepath=Path("out") / __file__.split("/")[-1].replace(".py", "") / f"fold-{fold}",
         mode="min")
 
     trainer = pl.Trainer(
