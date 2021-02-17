@@ -50,7 +50,7 @@ base:
 split:
     name: 'StratifiedKFold'
     param: {
-        'n_splits': 4
+        'n_splits': 4,
         'shuffle': True,
         'random_state': 1212
     }
