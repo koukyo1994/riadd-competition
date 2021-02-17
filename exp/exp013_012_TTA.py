@@ -300,13 +300,11 @@ def get_transforms(img_size: int, mode="train"):
         ])
     elif mode == "valid":
         return A.Compose([
-            A.RandomBrightnessContrast(
-                brightness_limit=0.1, contrast_limit=0.1, p=0.5),
-            # A.HueSaturationValue(
-            #     hue_shift_limit=5,
-            #     sat_shift_limit=5,
-            #     val_shift_limit=5,
-            #     p=0.5),
+            A.HueSaturationValue(
+                hue_shift_limit=5,
+                sat_shift_limit=5,
+                val_shift_limit=5,
+                p=0.5),
             A.Resize(img_size, img_size),
             A.Normalize(
                 mean=[0.485, 0.456, 0.4406],
@@ -316,13 +314,11 @@ def get_transforms(img_size: int, mode="train"):
         ])
     else:
         return A.Compose([
-            A.RandomBrightnessContrast(
-                brightness_limit=0.1, contrast_limit=0.1, p=0.5),
-            # A.HueSaturationValue(
-            #     hue_shift_limit=5,
-            #     sat_shift_limit=5,
-            #     val_shift_limit=5,
-            #     p=0.5),
+            A.HueSaturationValue(
+                hue_shift_limit=5,
+                sat_shift_limit=5,
+                val_shift_limit=5,
+                p=0.5),
             A.Resize(img_size, img_size),
             A.Normalize(
                 mean=[0.485, 0.456, 0.4406],
