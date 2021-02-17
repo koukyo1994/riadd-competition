@@ -306,14 +306,14 @@ def get_transforms(img_size: int, mode="train"):
                 scale=(0.9, 1.1),
                 ratio=(0.9, 1.1),
                 p=0.5),
-            A.ShiftScaleRotate(
-                shift_limit=0.1,
-                scale_limit=0.1,
-                rotate_limit=180,
-                border_mode=cv2.BORDER_CONSTANT,
-                value=0,
-                mask_value=0,
-                p=0.5),
+            # A.ShiftScaleRotate(
+            #     shift_limit=0.1,
+            #     scale_limit=0.1,
+            #     rotate_limit=180,
+            #     border_mode=cv2.BORDER_CONSTANT,
+            #     value=0,
+            #     mask_value=0,
+            #     p=0.5),
             # A.RandomBrightnessContrast(
             #     brightness_limit=0.1, contrast_limit=0.1, p=0.5),
             # A.HueSaturationValue(
@@ -336,14 +336,14 @@ def get_transforms(img_size: int, mode="train"):
                 scale=(0.9, 1.1),
                 ratio=(0.9, 1.1),
                 p=0.5),
-            A.ShiftScaleRotate(
-                shift_limit=0.1,
-                scale_limit=0.1,
-                rotate_limit=180,
-                border_mode=cv2.BORDER_CONSTANT,
-                value=0,
-                mask_value=0,
-                p=0.5),
+            # A.ShiftScaleRotate(
+            #     shift_limit=0.1,
+            #     scale_limit=0.1,
+            #     rotate_limit=180,
+            #     border_mode=cv2.BORDER_CONSTANT,
+            #     value=0,
+            #     mask_value=0,
+            #    p=0.5),
             # A.RandomBrightnessContrast(
             #     brightness_limit=0.1, contrast_limit=0.1, p=0.5),
             # A.HueSaturationValue(
