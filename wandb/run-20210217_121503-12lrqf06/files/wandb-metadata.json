@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.4.0-65-generic-x86_64-with-glibc2.10",
+    "python": "3.8.3",
+    "heartbeatAt": "2021-02-17T03:15:04.997672",
+    "startedAt": "2021-02-17T03:15:03.507470",
+    "docker": null,
+    "gpu": "GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 20,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "codePath": "pretrain/kaggle_dr_pretrain.py",
+    "program": "pretrain/kaggle_dr_pretrain.py",
+    "git": {
+        "remote": "git@github.com:/koukyo1994/riadd-competition",
+        "commit": "ee92978ac7d8656282e8058c4c071bafbfafeb39"
+    },
+    "email": "arabiannight1994@yahoo.co.jp",
+    "root": "/home/arai/github/koukyo1994/riadd-competition",
+    "host": "arai",
+    "username": "arai",
+    "executable": "/home/arai/anaconda3/envs/pytorch/bin/python"
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "pretrain/kaggle_dr_pretrain.py", line 380, in <module>
+    main(OmegaConf.create(conf))
+  File "pretrain/kaggle_dr_pretrain.py", line 376, in main
+    train_loop(cfg, folds, fold)
+  File "pretrain/kaggle_dr_pretrain.py", line 351, in train_loop
+    filepath=Path("out") / __file__.__name__.split("/")[-1].replace(".py", "") / f"fold-{fold}",
+AttributeError: 'str' object has no attribute '__name__'
