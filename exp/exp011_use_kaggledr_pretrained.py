@@ -182,7 +182,7 @@ def prepare_model_from_pretrained(model, path: Path, model_state_dict_key="state
         key = key.replace("model", "base_model")
         model_state_dict[key] = weight
 
-    in_features = model_state_dict["base_model.classifier.weights"].size(1)
+    in_features = model_state_dict["base_model.classifier.weight"].size(1)
     num_classes = model.base_model.classifier.out_features
     model.base_model.classifier = nn.Linear(in_features, 1)
     model.load_state_dict(model_state_dict)
