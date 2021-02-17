@@ -109,7 +109,7 @@ class CFG:
     ######################
     loss_name = "DANNLoss"
     loss_params: dict = {
-        "weights": [1.0, 1.0]
+        "weights": [1.0, 0.1]
     }
 
     ######################
