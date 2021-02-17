@@ -109,7 +109,7 @@ class CFG:
     ######################
     loss_name = "DANNLoss"
     loss_params: dict = {
-        "weights": [1.0, 0.01]
+        "weights": [1.0, 1.0]
     }
 
     ######################
@@ -234,11 +234,11 @@ class TrainDataset(torchdata.Dataset):
         label = torch.from_numpy(self.labels[index]).float()
         domain_label_str = self.domain_labels[index]
         if domain_label_str == "C1":
-            domain_label = 0
+            domain_label = torch.tensor([1.0, 0.0, 0.0]).float()
         elif domain_label_str == "C2":
-            domain_label = 1
+            domain_label = torch.tensor([0.0, 1.0, 0.0]).float()
         else:
-            domain_label = 2
+            domain_label = torch.tensor([0.0, 0.0, 1.0]).float()
         return {
             "ID": filename,
             "image": image,
@@ -686,14 +686,13 @@ class DANNLoss(nn.Module):
     def __init__(self, alpha=0.25, gamma=2.0, weights=[1.0, 1.0]):
         super().__init__()
         self.bcefocal = BCEFocalLoss(alpha=alpha, gamma=gamma)
-        self.ce = nn.CrossEntropyLoss()
         self.weights = weights
 
     def forward(self, preds, targets, domain_targets):
         class_pred = preds[:, :-3]
         domain_pred = preds[:, -3:]
         loss = self.bcefocal(class_pred, targets)
-        domain_loss = self.ce(domain_pred, domain_targets)
+        domain_loss = self.bcefocal(domain_pred, domain_targets)
         return self.weights[0] * loss + self.weights[1] * domain_loss
 
 
