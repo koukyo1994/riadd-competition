@@ -855,14 +855,40 @@ class CompetitionScore(Callback):
 
 
 class CheckpointAtBestMetric(Callback):
-    def __init__(self, monitor: str):
+    def __init__(self, monitor: str, is_higher_better=False):
         super().__init__(CallbackOrder.External)
         self.monitor = monitor
+        self.is_higher_better = is_higher_better
+
+    def on_stage_start(self, runner: IRunner):
+        if self.is_higher_better:
+            self.score = -np.inf
+        else:
+            self.score = np.inf
 
     def on_epoch_end(self, runner: IRunner):
+        score = runner.valid_metrics[self.monitor]
+        is_best = False
+        if self.is_higher_better:
+            if score > self.score:
+                is_best = True
+                self.score = score
+        else:
+            if score < self.score:
+                is_best = True
+                self.score = score
+
+        if is_best:
+            checkpoint = {
+                "model_state_dict": runner.model.state_dict(),
+                "epoch": runner.epoch,
+                "valid_score": runner.valid_metrics[self.monitor]
+            }
+            filename = f"best_{self.monitor}.pth"
+            torch.save(checkpoint, runner.logdir / "checkpoints" / filename)
+
         import pdb
         pdb.set_trace()
-        return super().on_epoch_end(runner)
 
 
 def get_callbacks():
@@ -872,14 +898,14 @@ def get_callbacks():
             AUCCallback(),
             MultiDiseaseAvgScore(),
             CompetitionScore(),
-            CheckpointAtBestMetric("epoch_auc")
+            CheckpointAtBestMetric("epoch_auc", is_higher_better=True)
         ]
     else:
         return [
             AUCCallback(),
             MultiDiseaseAvgScore(),
             CompetitionScore(),
-            CheckpointAtBestMetric("epoch_auc")
+            CheckpointAtBestMetric("epoch_auc", is_higher_better=True)
         ]
 
 
