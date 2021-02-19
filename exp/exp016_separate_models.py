@@ -885,6 +885,7 @@ class CheckpointAtBestMetric(Callback):
                 "valid_score": runner.valid_metrics[self.monitor]
             }
             filename = f"best_{self.monitor}.pth"
+            (runner.logdir / "checkpoints").mkdir(exist_ok=True, parents=True)
             torch.save(checkpoint, runner.logdir / "checkpoints" / filename)
 
 
