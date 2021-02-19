@@ -106,12 +106,8 @@ class CFG:
     ######################
     # Criterion #
     ######################
-    loss_name = "SeparatedLoss"
-    loss_params: dict = {
-        "loss_disease_risk": "BCEWithLogitsLoss",
-        "loss_disease": "BCEFocalLoss",
-        "weights": [1.0, 1.0]
-    }
+    loss_name = "BCEFocalLoss"
+    loss_params: dict = {}
 
     ######################
     # Optimizer #
