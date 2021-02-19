@@ -37,7 +37,7 @@ class CFG:
     ######################
     seed = 1213
     epochs = 55
-    train = True
+    train = False
     oof = True
     inference = True
     folds = [0, 1, 2, 3, 4]
@@ -1031,13 +1031,18 @@ if __name__ == "__main__":
                 transform=get_transforms(CFG.img_size, "valid"))
             val_loader = torchdata.DataLoader(val_dataset, **CFG.loader_params["valid"])  # type: ignore
 
-            model = TimmModel(
+            model_auc = TimmModel(
                 base_model_name=CFG.base_model_name,
                 pooling=CFG.pooling,
                 pretrained=CFG.pretrained,
                 num_classes=CFG.num_classes)
-            model_auc = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best_epoch_auc.pth").to(device)
-            model_mdas = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best_epoch_MdAS.pth").to(device)
+            model_mdas = TimmModel(
+                base_model_name=CFG.base_model_name,
+                pooling=CFG.pooling,
+                pretrained=CFG.pretrained,
+                num_classes=CFG.num_classes)
+            model_auc = prepare_model_fore_inference(model_auc, logdir / f"fold{i}/checkpoints/best_epoch_auc.pth").to(device)
+            model_mdas = prepare_model_fore_inference(model_mdas, logdir / f"fold{i}/checkpoints/best_epoch_MdAS.pth").to(device)
             predictions = []
             targets = []
             ids = []
@@ -1108,13 +1113,18 @@ if __name__ == "__main__":
             logger.info("=" * 20)
             logger.info(f"Fold {i} inference")
             logger.info("=" * 20)
-            model = TimmModel(
+            model_auc = TimmModel(
                 base_model_name=CFG.base_model_name,
                 pooling=CFG.pooling,
                 pretrained=CFG.pretrained,
                 num_classes=CFG.num_classes)
-            model_auc = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best_epoch_auc.pth").to(device)
-            model_mdas = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best_epoch_MdAS.pth").to(device)
+            model_mdas = TimmModel(
+                base_model_name=CFG.base_model_name,
+                pooling=CFG.pooling,
+                pretrained=CFG.pretrained,
+                num_classes=CFG.num_classes)
+            model_auc = prepare_model_fore_inference(model_auc, logdir / f"fold{i}/checkpoints/best_epoch_auc.pth").to(device)
+            model_mdas = prepare_model_fore_inference(model_mdas, logdir / f"fold{i}/checkpoints/best_epoch_MdAS.pth").to(device)
             predictions = []
             ids = []
             for batch in tqdm(test_loader, desc=f"fold{i} inference"):
