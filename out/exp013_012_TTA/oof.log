@@ -1,0 +1,228 @@
+====================
+Fold 0 OOF
+====================
+====================
+Fold 0 OOF
+====================
+====================
+Fold 0 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 0 AUC: 0.97012
+Fold 0 Multi-disease Avg Score: 0.77178
+Fold 0 Final score: 0.87095
+====================
+Fold 1 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 1 AUC: 0.95364
+Fold 1 Multi-disease Avg Score: 0.75276
+Fold 1 Final score: 0.85320
+====================
+Fold 2 OOF
+====================
+TTA: 0
+====================
+Fold 0 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 0 AUC: 0.97258
+Fold 0 Multi-disease Avg Score: 0.7756
+Fold 0 Final score: 0.87409
+====================
+Fold 1 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 1 AUC: 0.95306
+Fold 1 Multi-disease Avg Score: 0.75798
+Fold 1 Final score: 0.85552
+====================
+Fold 2 OOF
+====================
+TTA: 0
+====================
+Fold 0 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 0 AUC: 0.97249
+Fold 0 Multi-disease Avg Score: 0.78743
+Fold 0 Final score: 0.87996
+====================
+Fold 1 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 1 AUC: 0.95182
+Fold 1 Multi-disease Avg Score: 0.77403
+Fold 1 Final score: 0.86292
+====================
+Fold 2 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 2 AUC: 0.96546
+Fold 2 Multi-disease Avg Score: 0.76528
+Fold 2 Final score: 0.86537
+====================
+Fold 3 OOF
+====================
+TTA: 0
+====================
+Fold 0 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 0 AUC: 0.97249
+Fold 0 Multi-disease Avg Score: 0.78743
+Fold 0 Final score: 0.87996
+====================
+Fold 1 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 1 AUC: 0.95182
+Fold 1 Multi-disease Avg Score: 0.77403
+Fold 1 Final score: 0.86292
+====================
+Fold 2 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 2 AUC: 0.96546
+Fold 2 Multi-disease Avg Score: 0.76528
+Fold 2 Final score: 0.86537
+====================
+Fold 3 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+====================
+Fold 0 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 0 AUC: 0.97071
+Fold 0 Multi-disease Avg Score: 0.77243
+Fold 0 Final score: 0.87157
+====================
+Fold 1 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+====================
+Fold 0 OOF
+====================
+TTA: 0
+TTA: 1
+TTA: 2
+TTA: 3
+TTA: 4
+TTA: 5
+TTA: 6
+TTA: 7
+TTA: 8
+TTA: 9
+Fold 0 AUC: 0.97146
+Fold 0 Multi-disease Avg Score: 0.77387
+Fold 0 Final score: 0.87267
+====================
+Fold 1 OOF
+====================
+TTA: 0
+TTA: 1
