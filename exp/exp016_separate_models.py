@@ -887,9 +887,6 @@ class CheckpointAtBestMetric(Callback):
             filename = f"best_{self.monitor}.pth"
             torch.save(checkpoint, runner.logdir / "checkpoints" / filename)
 
-        import pdb
-        pdb.set_trace()
-
 
 def get_callbacks():
     if CFG.optimizer_name == "SAM":
@@ -898,14 +895,16 @@ def get_callbacks():
             AUCCallback(),
             MultiDiseaseAvgScore(),
             CompetitionScore(),
-            CheckpointAtBestMetric("epoch_auc", is_higher_better=True)
+            CheckpointAtBestMetric("epoch_auc", is_higher_better=True),
+            CheckpointAtBestMetric("epoch_MdAS", is_higher_better=True)
         ]
     else:
         return [
             AUCCallback(),
             MultiDiseaseAvgScore(),
             CompetitionScore(),
-            CheckpointAtBestMetric("epoch_auc", is_higher_better=True)
+            CheckpointAtBestMetric("epoch_auc", is_higher_better=True),
+            CheckpointAtBestMetric("epoch_MdAS", is_higher_better=True)
         ]
 
 
@@ -1040,7 +1039,8 @@ if __name__ == "__main__":
                 pooling=CFG.pooling,
                 pretrained=CFG.pretrained,
                 num_classes=CFG.num_classes)
-            model = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best.pth").to(device)
+            model_auc = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best_epoch_auc.pth").to(device)
+            model_mdas = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best_epoch_MdAS.pth").to(device)
             predictions = []
             targets = []
             ids = []
@@ -1052,8 +1052,13 @@ if __name__ == "__main__":
                 targets.append(label.cpu().numpy())
                 ids.extend(id_.cpu().numpy().tolist())
                 with torch.no_grad():
-                    output = model(input_).detach()
-                predictions.append(torch.sigmoid(output).cpu().numpy())
+                    output_auc = torch.sigmoid(model_auc(input_).detach()).cpu().numpy()
+                    output_mdas = torch.sigmoid(model_mdas(input_).detach()).cpu().numpy()
+
+                output = np.zeros_like(output_auc)
+                output[:, 0] = output_auc[:, 0]
+                output[:, 1:] = output_mdas[:, 1:]
+                predictions.append(output)
 
             pred_array = np.concatenate(predictions, axis=0)
             pred_df = pd.DataFrame(pred_array, columns=CFG.target_columns)
@@ -1111,7 +1116,8 @@ if __name__ == "__main__":
                 pooling=CFG.pooling,
                 pretrained=CFG.pretrained,
                 num_classes=CFG.num_classes)
-            model = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best.pth").to(device)
+            model_auc = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best_epoch_auc.pth").to(device)
+            model_mdas = prepare_model_fore_inference(model, logdir / f"fold{i}/checkpoints/best_epoch_MdAS.pth").to(device)
             predictions = []
             ids = []
             for batch in tqdm(test_loader, desc=f"fold{i} inference"):
@@ -1119,8 +1125,13 @@ if __name__ == "__main__":
                 id_ = batch["ID"]
                 ids.extend(id_.cpu().numpy().tolist())
                 with torch.no_grad():
-                    output = model(input_).detach()
-                predictions.append(torch.sigmoid(output).cpu().numpy())
+                    output_auc = torch.sigmoid(model_auc(input_).detach()).cpu().numpy()
+                    output_mdas = torch.sigmoid(model_mdas(input_).detach()).cpu().numpy()
+
+                output = np.zeros_like(output_auc)
+                output[:, 0] = output_auc[:, 0]
+                output[:, 1:] = output_mdas[:, 1:]
+                predictions.append(output)
 
             pred_array = np.concatenate(predictions, axis=0)
             pred_df = pd.DataFrame({
