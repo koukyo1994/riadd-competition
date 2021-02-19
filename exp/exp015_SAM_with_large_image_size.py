@@ -698,7 +698,10 @@ class AUCCallback(Callback):
         self.prediction.append(y_pred)
         self.target.append(y_true)
 
-        score = metrics.roc_auc_score(y_true=y_true, y_score=y_pred)
+        if 1 > y_true.mean() > 0:
+            score = metrics.roc_auc_score(y_true=y_true, y_score=y_pred)
+        else:
+            score = 0.0
         runner.batch_metrics[self.prefix] = score
 
     def on_loader_end(self, runner: IRunner):
@@ -786,7 +789,10 @@ class CompetitionScore(Callback):
         y_true_mdas = targ[:, 1:]
         y_pred_mdas = out[:, 1:]
 
-        auc_score = metrics.roc_auc_score(y_true=y_true_auc, y_score=y_pred_auc)
+        if 1 > y_true_auc.mean() > 0:
+            auc_score = metrics.roc_auc_score(y_true=y_true_auc, y_score=y_pred_auc)
+        else:
+            auc_score = 0.0
 
         mdas = multi_disease_avg_score(y_true_mdas, y_pred_mdas)
 
