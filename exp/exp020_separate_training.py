@@ -19,7 +19,8 @@ from pathlib import Path
 from typing import List
 
 from albumentations.pytorch import ToTensorV2
-from catalyst.core import Callback, CallbackOrder, IRunner, CheckpointCallback
+from catalyst.core import Callback, CallbackOrder, IRunner
+from catalyst.dl import CheckpointCallback
 from catalyst.dl import Runner, SupervisedRunner
 from iterstrat.ml_stratifiers import MultilabelStratifiedKFold
 from sklearn import model_selection
