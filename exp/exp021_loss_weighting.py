@@ -673,7 +673,7 @@ class BCEFocalLoss(nn.Module):
         self.alpha = alpha
         self.gamma = gamma
         if weights is not None:
-            self.weights = nn.Parameter(torch.tensor(weights), requires_grad=False)
+            self.weights = torch.tensor(weights)
         else:
             self.weights = None
 
