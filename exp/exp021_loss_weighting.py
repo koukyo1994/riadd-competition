@@ -682,6 +682,8 @@ class BCEFocalLoss(nn.Module):
         probas = torch.sigmoid(preds)
         loss = targets * self.alpha * (1. - probas) ** self.gamma * bce_loss + (1. - targets) * probas ** self.gamma * bce_loss
         if self.weights is not None:
+            if self.weights.device != preds.device:
+                self.weights = self.weights.to(preds.device)
             loss = loss * self.weights
         loss = loss.mean()
         return loss
