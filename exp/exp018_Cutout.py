@@ -37,7 +37,7 @@ class CFG:
     ######################
     seed = 1213
     epochs = 55
-    train = False
+    train = True
     oof = True
     inference = True
     folds = [0, 1, 2, 3, 4]
