@@ -290,7 +290,6 @@ def get_transforms(img_size: int, mode="train"):
                 sat_shift_limit=5,
                 val_shift_limit=5,
                 p=0.5),
-            A.Cutout(num_holes=10, max_h_size=20, max_w_size=20),
             A.Resize(img_size, img_size),
             A.Normalize(
                 mean=[0.485, 0.456, 0.4406],
