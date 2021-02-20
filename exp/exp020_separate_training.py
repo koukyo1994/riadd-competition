@@ -1003,18 +1003,18 @@ if __name__ == "__main__":
             trn_df = train.loc[trn_idx, :].reset_index(drop=True)
             val_df = train.loc[val_idx, :].reset_index(drop=True)
 
+            logger.info("####################### Disease Risk #######################")
             loaders = {
                 phase: torchdata.DataLoader(
                     TrainDataset(
                         df_,
                         CFG.train_datadir,
-                        CFG.target_columns,
+                        CFG_Risk.target_columns,
                         transform=get_transforms(CFG.img_size, phase)),
                     **CFG.loader_params[phase])  # type: ignore
                 for phase, df_ in zip(["train", "valid"], [trn_df, val_df])
             }
 
-            logger.info("####################### Disease Risk #######################")
             model_risk = TimmModel(
                 base_model_name=CFG_Risk.base_model_name,
                 pooling=CFG_Risk.pooling,
@@ -1044,6 +1044,17 @@ if __name__ == "__main__":
             torch.cuda.empty_cache()
 
             logger.info("####################### Disease #######################")
+            loaders = {
+                phase: torchdata.DataLoader(
+                    TrainDataset(
+                        df_,
+                        CFG.train_datadir,
+                        CFG_Disease.target_columns,
+                        transform=get_transforms(CFG.img_size, phase)),
+                    **CFG.loader_params[phase])  # type: ignore
+                for phase, df_ in zip(["train", "valid"], [trn_df, val_df])
+            }
+
             model_disease = TimmModel(
                 base_model_name=CFG_Disease.base_model_name,
                 pooling=CFG_Disease.pooling,
