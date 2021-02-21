@@ -70,17 +70,17 @@ class CFG:
     loader_params = {
         "train": {
             "batch_size": 64,
-            "num_workers": 20,
+            "num_workers": 10,
             "shuffle": True
         },
         "valid": {
-            "batch_size": 128,
-            "num_workers": 20,
+            "batch_size": 64,
+            "num_workers": 10,
             "shuffle": False
         },
         "test": {
-            "batch_size": 128,
-            "num_workers": 20,
+            "batch_size": 64,
+            "num_workers": 10,
             "shuffle": False
         }
     }
@@ -952,8 +952,7 @@ if __name__ == "__main__":
                 logdir=logdir / f"fold{i}",
                 callbacks=callbacks,
                 main_metric=CFG.main_metric,
-                minimize_metric=CFG.minimize_metric,
-                fp16=True)
+                minimize_metric=CFG.minimize_metric)
 
             del model, optimizer, scheduler
             gc.collect()
