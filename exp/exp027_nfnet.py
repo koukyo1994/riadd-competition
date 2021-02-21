@@ -115,7 +115,7 @@ class CFG:
     optimizer_name = "SAM"
     base_optimizer = "Adam"
     optimizer_params = {
-        "lr": 0.001
+        "lr": 1e-4
     }
     # For SAM optimizer
     base_optimizer = "Adam"
