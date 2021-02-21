@@ -836,7 +836,7 @@ class MultiDiseaseAvgScore(Callback):
 
     def on_batch_end(self, runner: IRunner):
         targ = runner.input[self.input_key].detach().cpu().numpy()
-        out = torch.sigmoid(runner.output[self.output_key].detach()).cpu().numpy()
+        out = torch.sigmoid(runner.output[self.output_key].detach()).cpu().numpy()[:, :-1]
 
         y_true = targ[:, 1:]
         y_pred = out[:, 1:]
