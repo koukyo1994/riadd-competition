@@ -99,7 +99,7 @@ class CFG:
     # Model #
     ######################
     base_model_name = "dm_nfnet_f0"
-    pooling = "GeM"
+    pooling = ""
     pretrained = True
     num_classes = 29
 
