@@ -980,12 +980,12 @@ class DANN_SAMRunner(Runner):
         if self.is_train_loader:
             loss.backward()
             self.optimizer.first_step(zero_grad=True)
-            self.criterion(self.model(input_), target).backward()
+            self.criterion(self.model(input_), target, domain_target).backward()
             self.optimizer.second_step(zero_grad=True)
 
 
 def get_runner(device: torch.device):
-    if CFG.optimizer_name == "SAM":
+    if CFG.optimizer_name == "SAM" and CFG.loss_name != "DANNLoss":
         return SAMRunner(device=device)
     elif CFG.loss_name == "DANNLoss":
         return DANN_SAMRunner(device=device)
