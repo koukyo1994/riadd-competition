@@ -872,7 +872,7 @@ class CompetitionScore(Callback):
 
     def on_batch_end(self, runner: IRunner):
         targ = runner.input[self.input_key].detach().cpu().numpy()
-        out = torch.sigmoid(runner.output[self.output_key].detach()).cpu().numpy()
+        out = torch.sigmoid(runner.output[self.output_key].detach()).cpu().numpy()[:, :-1]
 
         self.prediction.append(out)
         self.target.append(targ)
