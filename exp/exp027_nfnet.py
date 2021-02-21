@@ -98,7 +98,7 @@ class CFG:
     ######################
     # Model #
     ######################
-    base_model_name = "tf_efficientnet_b0_ns"
+    base_model_name = "dm_nfnet_f0"
     pooling = "GeM"
     pretrained = True
     num_classes = 29
@@ -370,16 +370,29 @@ class TimmModel(nn.Module):
         elif hasattr(self.base_model, "classifier"):
             in_features = self.base_model.classifier.in_features
             self.base_model.classifier = nn.Linear(in_features, num_classes)
+        elif hasattr(self.base_model, "head"):
+            in_features = self.base_model.head.fc.in_features
+            self.base_model.head.fc = nn.Linear(in_features, num_classes)
         else:
             raise NotImplementedError
 
         if pooling == "GeM":
-            self.base_model.avg_pool = GeM()
+            if hasattr(self.base_model, "head"):
+                self.base_model.head.global_pool = GeM()
+            else:
+                self.base_model.avg_pool = GeM()
 
         self.init_layer()
 
     def init_layer(self):
-        init_layer(self.base_model.classifier)
+        if hasattr(self.base_model, "fc"):
+            init_layer(self.base_model.fc)
+        elif hasattr(self.base_model, "classifier"):
+            init_layer(self.base_model.classifier)
+        elif hasattr(self.base_model, "head"):
+            init_layer(self.base_model.head.fc)
+        else:
+            raise NotImplementedError
 
     def forward(self, x):
         return self.base_model(x)
