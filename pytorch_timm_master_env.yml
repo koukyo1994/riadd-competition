@@ -1,4 +1,4 @@
-name: pytorch
+name: timm-master
 channels:
   - rapidsai
   - nvidia
@@ -586,7 +586,6 @@ dependencies:
       - termcolor==1.1.0
       - termtables==0.2.3
       - text-unidecode==1.3
-      - timm==0.3.4
       - torch==1.7.0+cu110
       - torchaudio==0.7.0
       - torchcam==0.1.2
@@ -601,4 +600,4 @@ dependencies:
       - wrapt==1.12.1
       - xfeat==0.1.1
       - zarr==2.3.0
-prefix: /home/arai/anaconda3/envs/pytorch
+prefix: /home/arai/anaconda3/envs/timm-master
