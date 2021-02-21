@@ -517,7 +517,6 @@ dependencies:
       - kaggle==1.5.10
       - keras-preprocessing==1.1.2
       - librosa==0.8.0
-      - lightgbm==3.0.0.99
       - mako==1.1.3
       - mir-eval==0.6
       - missingno==0.4.2
