@@ -203,14 +203,22 @@ def crop_image_from_gray(image: np.ndarray, threshold: int = 7):
         return image
 
 
+def center_crop(image: np.ndarray, ar: float):
+    h, w, _ = image.shape
+    new_h = int(ar * w)
+    start = (h - new_h) // 2
+    return image[start:start + new_h, :, :]
+
+
 class TrainDataset(torchdata.Dataset):
     def __init__(self, df: pd.DataFrame, datadir: Path, target_columns: list, transform=None,
-                 center_crop=False):
+                 center_crop=True):
         self.df = df
         self.filenames = df["ID"].values
         self.datadir = datadir
         self.target_columns = target_columns
         self.labels = df[target_columns].values
+        self.camera = df["camera"].values
         self.transform = transform
         self.center_crop = center_crop
 
@@ -221,8 +229,11 @@ class TrainDataset(torchdata.Dataset):
         filename = self.filenames[index]
         path = self.datadir / f"{filename}.png"
         image = cv2.cvtColor(cv2.imread(str(path)), cv2.COLOR_BGR2RGB)
+        camera = self.camera[index]
         if self.center_crop:
             image = crop_image_from_gray(image)
+            if camera != "C2":
+                image = center_crop(image, ar=0.834)
 
         if self.transform:
             augmented = self.transform(image=image)
@@ -237,9 +248,10 @@ class TrainDataset(torchdata.Dataset):
 
 
 class TestDataset(torchdata.Dataset):
-    def __init__(self, df: pd.DataFrame, datadir: Path, transform=None, center_crop=False):
+    def __init__(self, df: pd.DataFrame, datadir: Path, transform=None, center_crop=True):
         self.df = df
         self.filenames = df["ID"].values
+        self.camera = df["camera"].values
         self.datadir = datadir
         self.transform = transform
         self.center_crop = center_crop
@@ -251,8 +263,11 @@ class TestDataset(torchdata.Dataset):
         filename = self.filenames[index]
         path = self.datadir / f"{filename}.png"
         image = cv2.cvtColor(cv2.imread(str(path)), cv2.COLOR_BGR2RGB)
+        camera = self.camera[index]
         if self.center_crop:
             image = crop_image_from_gray(image)
+            if camera != "C2":
+                image = center_crop(image, ar=0.834)
 
         if self.transform:
             augmented = self.transform(image=image)
