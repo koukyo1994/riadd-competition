@@ -42,7 +42,7 @@ class CFG:
     ######################
     train_datadir = Path("data/Training_Set/Training")
     test_datadir = Path("data/Evaluation_Set")
-    train_csv = "data/Training_Set/Camera_annotated.csv"
+    train_csv = "data/Training_Set/RFMiD_Training_Labels.csv"
     test_csv = "data/Evaluate_camera_annotated.csv"
 
     ######################
