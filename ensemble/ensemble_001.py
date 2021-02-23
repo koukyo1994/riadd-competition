@@ -233,6 +233,7 @@ def init_layer(layer):
 
 class StackingModel(nn.Module):
     def __init__(self, num_classes=29):
+        super().__init__()
         self.convolution_layer = nn.Sequential(
             nn.Conv2d(in_channels=1,
                       out_channels=8,
