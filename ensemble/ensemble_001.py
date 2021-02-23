@@ -1,6 +1,7 @@
 import gc
 import os
 import random
+import warnings
 
 import numpy as np
 import pandas as pd
@@ -597,6 +598,8 @@ def get_runner(device: torch.device):
 
 
 if __name__ == "__main__":
+    warnings.filterwarnings("ignore")
+
     # logging
     filename = __file__.split("/")[-1].replace(".py", "")
     logdir = Path(f"out/{filename}")
