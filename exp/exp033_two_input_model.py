@@ -808,7 +808,10 @@ class AUCCallback(Callback):
         self.prediction.append(y_pred)
         self.target.append(y_true)
 
-        score = metrics.roc_auc_score(y_true=y_true, y_score=y_pred)
+        if 1 > y_true.mean() > 0:
+            score = metrics.roc_auc_score(y_true=y_true, y_score=y_pred)
+        else:
+            score = 0.0
         runner.batch_metrics[self.prefix] = score
 
     def on_loader_end(self, runner: IRunner):
@@ -821,8 +824,10 @@ class AUCCallback(Callback):
             runner.epoch_metrics["train_epoch_" + self.prefix] = score
 
 
-def multi_disease_avg_score(y_true: np.ndarray, y_pred: np.ndarray):
+def multi_disease_avg_score(y_true: np.ndarray, y_pred: np.ndarray, return_each=False):
     map_score = metrics.average_precision_score(y_true=y_true, y_score=y_pred, average=None)
+    if return_each:
+        map_score_each = np.nan_to_num(map_score, nan=0.0)
     map_score = np.nan_to_num(map_score, nan=0.0).mean()
 
     scores = []
@@ -833,7 +838,11 @@ def multi_disease_avg_score(y_true: np.ndarray, y_pred: np.ndarray):
         else:
             scores.append(0.0)
     auc_score = np.mean(scores)
-    return 0.5 * map_score + 0.5 * auc_score
+    if return_each:
+        auc_score_each = np.array(scores)
+        return 0.5 * map_score + 0.5 * auc_score, map_score_each, auc_score_each
+    else:
+        return 0.5 * map_score + 0.5 * auc_score
 
 
 class MultiDiseaseAvgScore(Callback):
@@ -896,7 +905,10 @@ class CompetitionScore(Callback):
         y_true_mdas = targ[:, 1:]
         y_pred_mdas = out[:, 1:]
 
-        auc_score = metrics.roc_auc_score(y_true=y_true_auc, y_score=y_pred_auc)
+        if 1 > y_true_auc.mean() > 0:
+            auc_score = metrics.roc_auc_score(y_true=y_true_auc, y_score=y_pred_auc)
+        else:
+            auc_score = 0.0
 
         mdas = multi_disease_avg_score(y_true_mdas, y_pred_mdas)
 
@@ -1122,8 +1134,12 @@ if __name__ == "__main__":
 
         y_true_mdas = targ_df[CFG.target_columns[1:]].values
         y_pred_mdas = pred_df[CFG.target_columns[1:]].values
-        mdas_score = multi_disease_avg_score(y_true_mdas, y_pred_mdas)
+        mdas_score, map_score, auc_score = multi_disease_avg_score(y_true_mdas, y_pred_mdas, return_each=True)
         logger.info(f"Multi-disease Avg Score: {mdas_score:.5g}")
+
+        columns = CFG.target_columns[1:]
+        for i, col in enumerate(columns):
+            logger.info(f"{col} mAP score: {map_score[i]:.5f} auc: {auc_score[i]:.5f}")
 
         score = 0.5 * auc + 0.5 * mdas_score
         logger.info(f"Final score: {score:.5f}")
