@@ -463,7 +463,9 @@ class TimmModel(nn.Module):
             raise NotImplementedError
 
         if pooling == "GeM":
-            self.base_model.avg_pool = GeM()
+            self.avg_pool = GeM()
+        else:
+            self.avg_pool = nn.AdaptiveAvgPool2d(in_features * 2)
 
         self.init_layer()
 
@@ -471,8 +473,9 @@ class TimmModel(nn.Module):
         init_layer(self.classifier)
 
     def forward(self, x, x_od):
-        feature = self.base_model.forward_features(x)
-        feature_od = self.od_model.forward_features(x)
+        batch_size = x.size(0)
+        feature = self.avg_pool(self.base_model.forward_features(x)).view(batch_size, -1)
+        feature_od = self.avg_pool(self.od_model.forward_features(x)).view(batch_size, -1)
         feature = torch.cat([feature, feature_od], dim=1)
         return self.classifier(feature)
 
