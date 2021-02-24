@@ -1,0 +1,512 @@
+{
+  "best": {
+    "epoch_MdAS": 0.7803551854683131,
+    "loss": 0.011134613926211992,
+    "MdAS": 0.4353325109839067
+  },
+  "last": {
+    "epoch_MdAS": 0.7538998918963453,
+    "loss": 0.0124102634532998,
+    "MdAS": 0.43224384350932543
+  },
+  "train.48": {
+    "epoch_MdAS": 0.7803551854683131,
+    "loss": 0.011134613926211992,
+    "MdAS": 0.4353325109839067
+  },
+  "epoch_0": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.1.pth",
+    0.3933501938833304,
+    {
+      "epoch_MdAS": 0.3933501938833304,
+      "loss": 0.012141017708927393,
+      "MdAS": 0.2841299080654183
+    }
+  ],
+  "epoch_1": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.2.pth",
+    0.5557644119994307,
+    {
+      "epoch_MdAS": 0.5557644119994307,
+      "loss": 0.010332726563016573,
+      "MdAS": 0.37615738981910396
+    }
+  ],
+  "epoch_2": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.3.pth",
+    0.5463162441243647,
+    {
+      "epoch_MdAS": 0.5463162441243647,
+      "loss": 0.00989690974044303,
+      "MdAS": 0.4042924150738086
+    }
+  ],
+  "epoch_3": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.4.pth",
+    0.5745759067076582,
+    {
+      "epoch_MdAS": 0.5745759067076582,
+      "loss": 0.009748988319188356,
+      "MdAS": 0.38919166949621536
+    }
+  ],
+  "epoch_4": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.5.pth",
+    0.5881465807231225,
+    {
+      "epoch_MdAS": 0.5881465807231225,
+      "loss": 0.010193989844992757,
+      "MdAS": 0.3963585619802568
+    }
+  ],
+  "epoch_5": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.6.pth",
+    0.6001257702335473,
+    {
+      "epoch_MdAS": 0.6001257702335473,
+      "loss": 0.008808964475368459,
+      "MdAS": 0.40848470182448304
+    }
+  ],
+  "epoch_6": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.7.pth",
+    0.6176935728453417,
+    {
+      "epoch_MdAS": 0.6176935728453417,
+      "loss": 0.009338064817711711,
+      "MdAS": 0.4096920527225325
+    }
+  ],
+  "epoch_7": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.8.pth",
+    0.6148662669338979,
+    {
+      "epoch_MdAS": 0.6148662669338979,
+      "loss": 0.00889912030349175,
+      "MdAS": 0.4108973772314589
+    }
+  ],
+  "epoch_8": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.9.pth",
+    0.6204338289317809,
+    {
+      "epoch_MdAS": 0.6204338289317809,
+      "loss": 0.008867433837925395,
+      "MdAS": 0.4237801658650416
+    }
+  ],
+  "epoch_9": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.10.pth",
+    0.6211837582253511,
+    {
+      "epoch_MdAS": 0.6211837582253511,
+      "loss": 0.008670827917133767,
+      "MdAS": 0.4211262347791223
+    }
+  ],
+  "epoch_10": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.11.pth",
+    0.6241866822802291,
+    {
+      "epoch_MdAS": 0.6241866822802291,
+      "loss": 0.00867606163956225,
+      "MdAS": 0.42149055406691527
+    }
+  ],
+  "epoch_11": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.12.pth",
+    0.6239438760543667,
+    {
+      "epoch_MdAS": 0.6239438760543667,
+      "loss": 0.008835536039744815,
+      "MdAS": 0.41962189703916897
+    }
+  ],
+  "epoch_12": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.13.pth",
+    0.6319256789589722,
+    {
+      "epoch_MdAS": 0.6319256789589722,
+      "loss": 0.008888036167869965,
+      "MdAS": 0.4121644767037417
+    }
+  ],
+  "epoch_13": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.14.pth",
+    0.6208142581837731,
+    {
+      "epoch_MdAS": 0.6208142581837731,
+      "loss": 0.010140416600431006,
+      "MdAS": 0.41335591806738026
+    }
+  ],
+  "epoch_14": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.15.pth",
+    0.59587845925052,
+    {
+      "epoch_MdAS": 0.59587845925052,
+      "loss": 0.009198422000433009,
+      "MdAS": 0.3864893768193328
+    }
+  ],
+  "epoch_15": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.16.pth",
+    0.6688251469652239,
+    {
+      "epoch_MdAS": 0.6688251469652239,
+      "loss": 0.011154490057379007,
+      "MdAS": 0.41496329700084195
+    }
+  ],
+  "epoch_16": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.17.pth",
+    0.6791288131508401,
+    {
+      "epoch_MdAS": 0.6791288131508401,
+      "loss": 0.0105704286446174,
+      "MdAS": 0.41418474546050266
+    }
+  ],
+  "epoch_17": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.18.pth",
+    0.6497765391233099,
+    {
+      "epoch_MdAS": 0.6497765391233099,
+      "loss": 0.011841570648054283,
+      "MdAS": 0.4168441233864576
+    }
+  ],
+  "epoch_18": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.19.pth",
+    0.5896401043215803,
+    {
+      "epoch_MdAS": 0.5896401043215803,
+      "loss": 0.012456121388822794,
+      "MdAS": 0.38445753430505947
+    }
+  ],
+  "epoch_19": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.20.pth",
+    0.6027706167337021,
+    {
+      "epoch_MdAS": 0.6027706167337021,
+      "loss": 0.009798688969264429,
+      "MdAS": 0.4001626550791948
+    }
+  ],
+  "epoch_20": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.21.pth",
+    0.5511121029188484,
+    {
+      "epoch_MdAS": 0.5511121029188484,
+      "loss": 0.011665191346158585,
+      "MdAS": 0.38873554309341146
+    }
+  ],
+  "epoch_21": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.22.pth",
+    0.6567524188649101,
+    {
+      "epoch_MdAS": 0.6567524188649101,
+      "loss": 0.011435927512745062,
+      "MdAS": 0.42056865863761983
+    }
+  ],
+  "epoch_22": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.23.pth",
+    0.6891593941702595,
+    {
+      "epoch_MdAS": 0.6891593941702595,
+      "loss": 0.01161267887800932,
+      "MdAS": 0.4229047246193818
+    }
+  ],
+  "epoch_23": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.24.pth",
+    0.6225357707213419,
+    {
+      "epoch_MdAS": 0.6225357707213419,
+      "loss": 0.010489937926953038,
+      "MdAS": 0.42429223946414507
+    }
+  ],
+  "epoch_24": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.25.pth",
+    0.6829045363193724,
+    {
+      "epoch_MdAS": 0.6829045363193724,
+      "loss": 0.012497037804375092,
+      "MdAS": 0.43939987459743873
+    }
+  ],
+  "epoch_25": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.26.pth",
+    0.7152658480114609,
+    {
+      "epoch_MdAS": 0.7152658480114609,
+      "loss": 0.01097748801112175,
+      "MdAS": 0.45756392371798266
+    }
+  ],
+  "epoch_26": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.27.pth",
+    0.6730532038012182,
+    {
+      "epoch_MdAS": 0.6730532038012182,
+      "loss": 0.01149830361828208,
+      "MdAS": 0.441580071931576
+    }
+  ],
+  "epoch_27": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.28.pth",
+    0.7743414088923135,
+    {
+      "epoch_MdAS": 0.7743414088923135,
+      "loss": 0.011097201068575183,
+      "MdAS": 0.43568764978435787
+    }
+  ],
+  "epoch_28": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.29.pth",
+    0.7733866285611672,
+    {
+      "epoch_MdAS": 0.7733866285611672,
+      "loss": 0.010665736704443892,
+      "MdAS": 0.4380603997908044
+    }
+  ],
+  "epoch_29": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.30.pth",
+    0.7748216096017514,
+    {
+      "epoch_MdAS": 0.7748216096017514,
+      "loss": 0.010881720576435328,
+      "MdAS": 0.4396444397925803
+    }
+  ],
+  "epoch_30": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.31.pth",
+    0.7247088927591696,
+    {
+      "epoch_MdAS": 0.7247088927591696,
+      "loss": 0.010939258926858505,
+      "MdAS": 0.43917443599450473
+    }
+  ],
+  "epoch_31": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.32.pth",
+    0.7755105906336341,
+    {
+      "epoch_MdAS": 0.7755105906336341,
+      "loss": 0.010880756890401244,
+      "MdAS": 0.4347326781297495
+    }
+  ],
+  "epoch_32": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.33.pth",
+    0.721423627578055,
+    {
+      "epoch_MdAS": 0.721423627578055,
+      "loss": 0.011402374831959605,
+      "MdAS": 0.44363388967894846
+    }
+  ],
+  "epoch_33": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.34.pth",
+    0.7736707579736612,
+    {
+      "epoch_MdAS": 0.7736707579736612,
+      "loss": 0.011788395621503394,
+      "MdAS": 0.4306366310092531
+    }
+  ],
+  "epoch_34": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.35.pth",
+    0.7035058116802846,
+    {
+      "epoch_MdAS": 0.7035058116802846,
+      "loss": 0.012070430365080634,
+      "MdAS": 0.4349948256996446
+    }
+  ],
+  "epoch_35": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.36.pth",
+    0.6541912613250636,
+    {
+      "epoch_MdAS": 0.6541912613250636,
+      "loss": 0.0121551852983733,
+      "MdAS": 0.4220649969340652
+    }
+  ],
+  "epoch_36": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.37.pth",
+    0.6773642136895447,
+    {
+      "epoch_MdAS": 0.6773642136895447,
+      "loss": 0.012283554533496499,
+      "MdAS": 0.4134571732454579
+    }
+  ],
+  "epoch_37": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.38.pth",
+    0.6745802831788514,
+    {
+      "epoch_MdAS": 0.6745802831788514,
+      "loss": 0.01252874716495474,
+      "MdAS": 0.40637945749647975
+    }
+  ],
+  "epoch_38": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.39.pth",
+    0.739641966063123,
+    {
+      "epoch_MdAS": 0.739641966063123,
+      "loss": 0.01331735635176301,
+      "MdAS": 0.43550244992409737
+    }
+  ],
+  "epoch_39": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.40.pth",
+    0.727696087190256,
+    {
+      "epoch_MdAS": 0.727696087190256,
+      "loss": 0.013082001203050217,
+      "MdAS": 0.39188649389542896
+    }
+  ],
+  "epoch_40": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.41.pth",
+    0.7199751157757798,
+    {
+      "epoch_MdAS": 0.7199751157757798,
+      "loss": 0.010717287970085938,
+      "MdAS": 0.4252639954495165
+    }
+  ],
+  "epoch_41": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.42.pth",
+    0.7783338734455931,
+    {
+      "epoch_MdAS": 0.7783338734455931,
+      "loss": 0.011878602982809147,
+      "MdAS": 0.44189224828100626
+    }
+  ],
+  "epoch_42": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.43.pth",
+    0.7179331357148193,
+    {
+      "epoch_MdAS": 0.7179331357148193,
+      "loss": 0.011338318387667337,
+      "MdAS": 0.40533770210751496
+    }
+  ],
+  "epoch_43": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.44.pth",
+    0.7520743140428479,
+    {
+      "epoch_MdAS": 0.7520743140428479,
+      "loss": 0.011088817225148281,
+      "MdAS": 0.4276043627923097
+    }
+  ],
+  "epoch_44": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.45.pth",
+    0.7304674910845943,
+    {
+      "epoch_MdAS": 0.7304674910845943,
+      "loss": 0.010611577269931635,
+      "MdAS": 0.4166486972036468
+    }
+  ],
+  "epoch_45": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.46.pth",
+    0.7342313068309372,
+    {
+      "epoch_MdAS": 0.7342313068309372,
+      "loss": 0.011618030723184347,
+      "MdAS": 0.42219958010077724
+    }
+  ],
+  "epoch_46": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.47.pth",
+    0.7730875738313329,
+    {
+      "epoch_MdAS": 0.7730875738313329,
+      "loss": 0.011775821292152008,
+      "MdAS": 0.4351067043433338
+    }
+  ],
+  "epoch_47": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.48.pth",
+    0.7803551854683131,
+    {
+      "epoch_MdAS": 0.7803551854683131,
+      "loss": 0.011134613926211992,
+      "MdAS": 0.4353325109839067
+    }
+  ],
+  "epoch_48": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.49.pth",
+    0.7753987818173771,
+    {
+      "epoch_MdAS": 0.7753987818173771,
+      "loss": 0.010910446134706339,
+      "MdAS": 0.4356865016424227
+    }
+  ],
+  "epoch_49": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.50.pth",
+    0.7742952160628076,
+    {
+      "epoch_MdAS": 0.7742952160628076,
+      "loss": 0.01094621792435646,
+      "MdAS": 0.4359744045118272
+    }
+  ],
+  "epoch_50": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.51.pth",
+    0.7719200854583618,
+    {
+      "epoch_MdAS": 0.7719200854583618,
+      "loss": 0.01106844237074256,
+      "MdAS": 0.43401914331664154
+    }
+  ],
+  "epoch_51": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.52.pth",
+    0.7717531235212332,
+    {
+      "epoch_MdAS": 0.7717531235212332,
+      "loss": 0.01107589186479648,
+      "MdAS": 0.4319450420915695
+    }
+  ],
+  "epoch_52": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.53.pth",
+    0.7719022056811558,
+    {
+      "epoch_MdAS": 0.7719022056811558,
+      "loss": 0.011506163204709688,
+      "MdAS": 0.43409856318077655
+    }
+  ],
+  "epoch_53": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.54.pth",
+    0.7692851305094457,
+    {
+      "epoch_MdAS": 0.7692851305094457,
+      "loss": 0.011911131829644242,
+      "MdAS": 0.43308584367771197
+    }
+  ],
+  "epoch_54": [
+    "out/exp032_crop_optic_disk/fold2/checkpoints/train.55.pth",
+    0.7538998918963453,
+    {
+      "epoch_MdAS": 0.7538998918963453,
+      "loss": 0.0124102634532998,
+      "MdAS": 0.43224384350932543
+    }
+  ]
+}
