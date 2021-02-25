@@ -1239,7 +1239,7 @@ if __name__ == "__main__":
                    logdir=logdir,
                    logger=logger,
                    n=10,
-                   main_metric=["EMA_score"],
+                   main_metric="EMA_score",
                    epochs=CFG.epochs,
                    input_key="image",
                    input_target_key="targets")
