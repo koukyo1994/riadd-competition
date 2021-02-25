@@ -1221,14 +1221,14 @@ if __name__ == "__main__":
             base_model_name=CFG.base_model_name,
             pooling=CFG.pooling,
             pretrained=CFG.pretrained,
-            num_classes=CFG.num_classes)
-        criterion = get_criterion()
+            num_classes=CFG.num_classes).to(device)
+        criterion = get_criterion().to(device)
         optimizer = get_optimizer(model)
         scheduler = get_scheduler(optimizer)
         ema_model = AveragedModel(
             model,
             avg_fn=lambda averaged_model_parameter, model_parameter, num_averaged:
-                0.1 * averaged_model_parameter + 0.9 * model_parameter)
+                0.1 * averaged_model_parameter + 0.9 * model_parameter).to(device)
         train_func(model=model,
                    ema_model=ema_model,
                    dataloaders=loaders,
