@@ -1,0 +1,1225 @@
+====================
+Epoch [1/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.03033
+score: 0.57620
+auc: 0.83145
+MdAS: 0.32094
+Valid metrics
+loss: 0.01326
+auc: 0.90642
+MdAS: 0.45715
+EMA_loss: 0.01285
+EMA_score: 0.68620
+EMA_auc: 0.91097
+EMA_MdAS: 0.46143
+####################
+Elapsed time: 2min 10.4814seconds.
+====================
+Epoch [2/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.01210
+score: 0.69549
+auc: 0.91110
+MdAS: 0.47988
+Valid metrics
+loss: 0.01054
+auc: 0.94871
+MdAS: 0.57930
+EMA_loss: 0.01024
+EMA_score: 0.76738
+EMA_auc: 0.94972
+EMA_MdAS: 0.58504
+####################
+Elapsed time: 2min 13.0839seconds.
+====================
+Epoch [3/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.01026
+score: 0.74658
+auc: 0.93813
+MdAS: 0.55503
+Valid metrics
+loss: 0.00864
+auc: 0.97498
+MdAS: 0.65603
+EMA_loss: 0.00847
+EMA_score: 0.81877
+EMA_auc: 0.97570
+EMA_MdAS: 0.66184
+####################
+Elapsed time: 2min 12.0281seconds.
+====================
+Epoch [4/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00920
+score: 0.78332
+auc: 0.95237
+MdAS: 0.61427
+Valid metrics
+loss: 0.00766
+auc: 0.98238
+MdAS: 0.72440
+EMA_loss: 0.00737
+EMA_score: 0.85863
+EMA_auc: 0.98344
+EMA_MdAS: 0.73381
+####################
+Elapsed time: 2min 12.8651seconds.
+====================
+Epoch [5/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00831
+score: 0.81307
+auc: 0.96117
+MdAS: 0.66497
+Valid metrics
+loss: 0.00725
+auc: 0.97992
+MdAS: 0.77551
+EMA_loss: 0.00667
+EMA_score: 0.88259
+EMA_auc: 0.98300
+EMA_MdAS: 0.78217
+####################
+Elapsed time: 2min 11.8985seconds.
+====================
+Epoch [6/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00722
+score: 0.85064
+auc: 0.97190
+MdAS: 0.72937
+Valid metrics
+loss: 0.00555
+auc: 0.99160
+MdAS: 0.83480
+EMA_loss: 0.00549
+EMA_score: 0.91437
+EMA_auc: 0.99173
+EMA_MdAS: 0.83701
+####################
+Elapsed time: 2min 11.2970seconds.
+====================
+Epoch [7/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00675
+score: 0.87052
+auc: 0.97690
+MdAS: 0.76414
+Valid metrics
+loss: 0.00498
+auc: 0.99417
+MdAS: 0.86752
+EMA_loss: 0.00488
+EMA_score: 0.92972
+EMA_auc: 0.99459
+EMA_MdAS: 0.86484
+####################
+Elapsed time: 2min 10.9647seconds.
+====================
+Epoch [8/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00603
+score: 0.89602
+auc: 0.98247
+MdAS: 0.80956
+Valid metrics
+loss: 0.00451
+auc: 0.99544
+MdAS: 0.87962
+EMA_loss: 0.00445
+EMA_score: 0.93853
+EMA_auc: 0.99586
+EMA_MdAS: 0.88120
+####################
+Elapsed time: 2min 12.4501seconds.
+====================
+Epoch [9/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00559
+score: 0.90169
+auc: 0.98520
+MdAS: 0.81818
+Valid metrics
+loss: 0.00415
+auc: 0.99676
+MdAS: 0.89486
+EMA_loss: 0.00416
+EMA_score: 0.94593
+EMA_auc: 0.99673
+EMA_MdAS: 0.89514
+####################
+Elapsed time: 2min 12.7469seconds.
+====================
+Epoch [10/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00536
+score: 0.91159
+auc: 0.98713
+MdAS: 0.83605
+Valid metrics
+loss: 0.00412
+auc: 0.99682
+MdAS: 0.89709
+EMA_loss: 0.00407
+EMA_score: 0.94679
+EMA_auc: 0.99690
+EMA_MdAS: 0.89667
+####################
+Elapsed time: 2min 11.7998seconds.
+====================
+Epoch [11/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00532
+score: 0.91388
+auc: 0.98867
+MdAS: 0.83908
+Valid metrics
+loss: 0.00404
+auc: 0.99698
+MdAS: 0.90151
+EMA_loss: 0.00407
+EMA_score: 0.94697
+EMA_auc: 0.99690
+EMA_MdAS: 0.89703
+####################
+Elapsed time: 2min 12.3483seconds.
+====================
+Epoch [12/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00526
+score: 0.91053
+auc: 0.98832
+MdAS: 0.83275
+Valid metrics
+loss: 0.00402
+auc: 0.99710
+MdAS: 0.89954
+EMA_loss: 0.00399
+EMA_score: 0.94853
+EMA_auc: 0.99714
+EMA_MdAS: 0.89993
+####################
+Elapsed time: 2min 12.2248seconds.
+====================
+Epoch [13/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00527
+score: 0.91449
+auc: 0.98735
+MdAS: 0.84163
+Valid metrics
+loss: 0.00390
+auc: 0.99748
+MdAS: 0.90277
+EMA_loss: 0.00385
+EMA_score: 0.95183
+EMA_auc: 0.99751
+EMA_MdAS: 0.90615
+####################
+Elapsed time: 2min 12.9340seconds.
+====================
+Epoch [14/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00522
+score: 0.91279
+auc: 0.98606
+MdAS: 0.83952
+Valid metrics
+loss: 0.00363
+auc: 0.99865
+MdAS: 0.91379
+EMA_loss: 0.00354
+EMA_score: 0.95626
+EMA_auc: 0.99871
+EMA_MdAS: 0.91382
+####################
+Elapsed time: 2min 12.6345seconds.
+====================
+Epoch [15/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00516
+score: 0.91136
+auc: 0.98669
+MdAS: 0.83603
+Valid metrics
+loss: 0.00420
+auc: 0.99657
+MdAS: 0.91785
+EMA_loss: 0.00327
+EMA_score: 0.96276
+EMA_auc: 0.99813
+EMA_MdAS: 0.92740
+####################
+Elapsed time: 2min 13.8292seconds.
+====================
+Epoch [16/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00513
+score: 0.91880
+auc: 0.98527
+MdAS: 0.85232
+Valid metrics
+loss: 0.00339
+auc: 0.99919
+MdAS: 0.93754
+EMA_loss: 0.00310
+EMA_score: 0.96782
+EMA_auc: 0.99928
+EMA_MdAS: 0.93635
+####################
+Elapsed time: 2min 11.2367seconds.
+====================
+Epoch [17/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00512
+score: 0.92079
+auc: 0.98838
+MdAS: 0.85321
+Valid metrics
+loss: 0.00335
+auc: 0.99801
+MdAS: 0.95103
+EMA_loss: 0.00288
+EMA_score: 0.97707
+EMA_auc: 0.99885
+EMA_MdAS: 0.95529
+####################
+Elapsed time: 2min 12.7730seconds.
+====================
+Epoch [18/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00522
+score: 0.92127
+auc: 0.98473
+MdAS: 0.85782
+Valid metrics
+loss: 0.00411
+auc: 0.99842
+MdAS: 0.93483
+EMA_loss: 0.00329
+EMA_score: 0.97511
+EMA_auc: 0.99937
+EMA_MdAS: 0.95084
+####################
+Elapsed time: 2min 11.5297seconds.
+====================
+Epoch [19/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00569
+score: 0.91166
+auc: 0.97216
+MdAS: 0.85116
+Valid metrics
+loss: 0.00417
+auc: 0.99796
+MdAS: 0.94688
+EMA_loss: 0.00335
+EMA_score: 0.97744
+EMA_auc: 0.99904
+EMA_MdAS: 0.95584
+####################
+Elapsed time: 2min 12.2734seconds.
+====================
+Epoch [20/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00488
+score: 0.93868
+auc: 0.98567
+MdAS: 0.89168
+Valid metrics
+loss: 0.00314
+auc: 0.99870
+MdAS: 0.95926
+EMA_loss: 0.00249
+EMA_score: 0.98522
+EMA_auc: 0.99898
+EMA_MdAS: 0.97147
+####################
+Elapsed time: 2min 11.9233seconds.
+====================
+Epoch [21/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00456
+score: 0.94079
+auc: 0.98780
+MdAS: 0.89379
+Valid metrics
+loss: 0.00280
+auc: 0.99862
+MdAS: 0.97289
+EMA_loss: 0.00226
+EMA_score: 0.98899
+EMA_auc: 0.99904
+EMA_MdAS: 0.97894
+####################
+Elapsed time: 2min 12.1534seconds.
+====================
+Epoch [22/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00424
+score: 0.95733
+auc: 0.98745
+MdAS: 0.92720
+Valid metrics
+loss: 0.00221
+auc: 0.99960
+MdAS: 0.98786
+EMA_loss: 0.00186
+EMA_score: 0.99503
+EMA_auc: 0.99982
+EMA_MdAS: 0.99025
+####################
+Elapsed time: 2min 12.6466seconds.
+====================
+Epoch [23/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00326
+score: 0.97068
+auc: 0.99502
+MdAS: 0.94634
+Valid metrics
+loss: 0.00198
+auc: 0.99982
+MdAS: 0.99253
+EMA_loss: 0.00150
+EMA_score: 0.99751
+EMA_auc: 0.99994
+EMA_MdAS: 0.99507
+####################
+Elapsed time: 2min 13.0860seconds.
+====================
+Epoch [24/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00309
+score: 0.97653
+auc: 0.99394
+MdAS: 0.95913
+Valid metrics
+loss: 0.00180
+auc: 0.99976
+MdAS: 0.98961
+EMA_loss: 0.00122
+EMA_score: 0.99711
+EMA_auc: 0.99994
+EMA_MdAS: 0.99429
+####################
+Elapsed time: 2min 11.8057seconds.
+====================
+Epoch [25/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00250
+score: 0.98300
+auc: 0.99560
+MdAS: 0.97041
+Valid metrics
+loss: 0.00078
+auc: 0.99998
+MdAS: 0.99921
+EMA_loss: 0.00072
+EMA_score: 0.99956
+EMA_auc: 0.99999
+EMA_MdAS: 0.99912
+####################
+Elapsed time: 2min 12.5854seconds.
+====================
+Epoch [26/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00191
+score: 0.99298
+auc: 0.99775
+MdAS: 0.98820
+Valid metrics
+loss: 0.00058
+auc: 0.99998
+MdAS: 0.99969
+EMA_loss: 0.00051
+EMA_score: 0.99986
+EMA_auc: 0.99998
+EMA_MdAS: 0.99974
+####################
+Elapsed time: 2min 13.0026seconds.
+====================
+Epoch [27/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00165
+score: 0.99451
+auc: 0.99700
+MdAS: 0.99201
+Valid metrics
+loss: 0.00053
+auc: 1.00000
+MdAS: 0.99999
+EMA_loss: 0.00049
+EMA_score: 0.99999
+EMA_auc: 1.00000
+EMA_MdAS: 0.99999
+####################
+Elapsed time: 2min 13.4690seconds.
+====================
+Epoch [28/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00146
+score: 0.99561
+auc: 0.99832
+MdAS: 0.99290
+Valid metrics
+loss: 0.00031
+auc: 1.00000
+MdAS: 0.99998
+EMA_loss: 0.00030
+EMA_score: 0.99999
+EMA_auc: 1.00000
+EMA_MdAS: 0.99998
+####################
+Elapsed time: 2min 13.6666seconds.
+====================
+Epoch [29/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00122
+score: 0.99826
+auc: 0.99855
+MdAS: 0.99797
+Valid metrics
+loss: 0.00028
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00028
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 13.2239seconds.
+====================
+Epoch [30/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00109
+score: 0.99829
+auc: 0.99927
+MdAS: 0.99732
+Valid metrics
+loss: 0.00027
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00027
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 13.2982seconds.
+====================
+Epoch [31/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00112
+score: 0.99752
+auc: 0.99823
+MdAS: 0.99681
+Valid metrics
+loss: 0.00027
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00026
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 11.9576seconds.
+====================
+Epoch [32/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00112
+score: 0.99805
+auc: 0.99891
+MdAS: 0.99719
+Valid metrics
+loss: 0.00027
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00025
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 13.2785seconds.
+====================
+Epoch [33/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00111
+score: 0.99729
+auc: 0.99889
+MdAS: 0.99569
+Valid metrics
+loss: 0.00025
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00024
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 11.8733seconds.
+====================
+Epoch [34/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00100
+score: 0.99829
+auc: 0.99953
+MdAS: 0.99705
+Valid metrics
+loss: 0.00021
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00022
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 12.7597seconds.
+====================
+Epoch [35/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00104
+score: 0.99791
+auc: 0.99926
+MdAS: 0.99657
+Valid metrics
+loss: 0.00023
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00021
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 10.6080seconds.
+====================
+Epoch [36/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00130
+score: 0.99721
+auc: 0.99795
+MdAS: 0.99647
+Valid metrics
+loss: 0.00037
+auc: 0.99999
+MdAS: 0.99999
+EMA_loss: 0.00031
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 12.5816seconds.
+====================
+Epoch [37/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00179
+score: 0.99494
+auc: 0.99659
+MdAS: 0.99329
+Valid metrics
+loss: 0.00079
+auc: 0.99962
+MdAS: 0.99983
+EMA_loss: 0.00046
+EMA_score: 0.99999
+EMA_auc: 0.99999
+EMA_MdAS: 0.99998
+####################
+Elapsed time: 2min 12.6595seconds.
+====================
+Epoch [38/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00189
+score: 0.99056
+auc: 0.99663
+MdAS: 0.98449
+Valid metrics
+loss: 0.00059
+auc: 1.00000
+MdAS: 0.99976
+EMA_loss: 0.00045
+EMA_score: 0.99998
+EMA_auc: 1.00000
+EMA_MdAS: 0.99995
+####################
+Elapsed time: 2min 13.2149seconds.
+====================
+Epoch [39/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00206
+score: 0.98649
+auc: 0.99714
+MdAS: 0.97584
+Valid metrics
+loss: 0.00116
+auc: 0.99994
+MdAS: 0.99513
+EMA_loss: 0.00078
+EMA_score: 0.99813
+EMA_auc: 1.00000
+EMA_MdAS: 0.99626
+####################
+Elapsed time: 2min 11.6356seconds.
+====================
+Epoch [40/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00240
+score: 0.98571
+auc: 0.99438
+MdAS: 0.97705
+Valid metrics
+loss: 0.00106
+auc: 0.99976
+MdAS: 0.99790
+EMA_loss: 0.00071
+EMA_score: 0.99895
+EMA_auc: 0.99994
+EMA_MdAS: 0.99796
+####################
+Elapsed time: 2min 12.3456seconds.
+====================
+Epoch [41/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00232
+score: 0.98547
+auc: 0.99539
+MdAS: 0.97554
+Valid metrics
+loss: 0.00157
+auc: 0.99931
+MdAS: 0.99155
+EMA_loss: 0.00118
+EMA_score: 0.99682
+EMA_auc: 0.99987
+EMA_MdAS: 0.99376
+####################
+Elapsed time: 2min 11.4875seconds.
+====================
+Epoch [42/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00269
+score: 0.98470
+auc: 0.99636
+MdAS: 0.97304
+Valid metrics
+loss: 0.00112
+auc: 0.99989
+MdAS: 0.99863
+EMA_loss: 0.00079
+EMA_score: 0.99961
+EMA_auc: 0.99998
+EMA_MdAS: 0.99924
+####################
+Elapsed time: 2min 13.3646seconds.
+====================
+Epoch [43/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00203
+score: 0.99270
+auc: 0.99671
+MdAS: 0.98868
+Valid metrics
+loss: 0.00069
+auc: 0.99995
+MdAS: 0.99929
+EMA_loss: 0.00053
+EMA_score: 0.99975
+EMA_auc: 1.00000
+EMA_MdAS: 0.99951
+####################
+Elapsed time: 2min 13.5873seconds.
+====================
+Epoch [44/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00173
+score: 0.99310
+auc: 0.99732
+MdAS: 0.98888
+Valid metrics
+loss: 0.00077
+auc: 0.99983
+MdAS: 0.99467
+EMA_loss: 0.00055
+EMA_score: 0.99801
+EMA_auc: 0.99995
+EMA_MdAS: 0.99607
+####################
+Elapsed time: 2min 12.9647seconds.
+====================
+Epoch [45/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00138
+score: 0.99535
+auc: 0.99871
+MdAS: 0.99198
+Valid metrics
+loss: 0.00035
+auc: 1.00000
+MdAS: 0.99971
+EMA_loss: 0.00029
+EMA_score: 0.99996
+EMA_auc: 1.00000
+EMA_MdAS: 0.99992
+####################
+Elapsed time: 2min 13.2295seconds.
+====================
+Epoch [46/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00115
+score: 0.99763
+auc: 0.99850
+MdAS: 0.99677
+Valid metrics
+loss: 0.00020
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00018
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 12.4826seconds.
+====================
+Epoch [47/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00086
+score: 0.99857
+auc: 0.99878
+MdAS: 0.99836
+Valid metrics
+loss: 0.00011
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00011
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 12.9362seconds.
+====================
+Epoch [48/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00069
+score: 0.99925
+auc: 0.99944
+MdAS: 0.99905
+Valid metrics
+loss: 0.00009
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00009
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 12.9633seconds.
+====================
+Epoch [49/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00065
+score: 0.99962
+auc: 0.99955
+MdAS: 0.99968
+Valid metrics
+loss: 0.00009
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00008
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 14.5595seconds.
+====================
+Epoch [50/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00052
+score: 0.99985
+auc: 0.99988
+MdAS: 0.99982
+Valid metrics
+loss: 0.00008
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00008
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 14.4891seconds.
+====================
+Epoch [51/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00057
+score: 0.99959
+auc: 0.99963
+MdAS: 0.99955
+Valid metrics
+loss: 0.00009
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00008
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 13.3824seconds.
+====================
+Epoch [52/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00055
+score: 0.99976
+auc: 0.99979
+MdAS: 0.99972
+Valid metrics
+loss: 0.00008
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00007
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 12.3036seconds.
+====================
+Epoch [53/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00053
+score: 0.99969
+auc: 0.99988
+MdAS: 0.99949
+Valid metrics
+loss: 0.00007
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00006
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 11.8568seconds.
+====================
+Epoch [54/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00049
+score: 0.99986
+auc: 0.99990
+MdAS: 0.99982
+Valid metrics
+loss: 0.00006
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00006
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 11.3682seconds.
+====================
+Epoch [55/55]
+====================
+Train
+Valid
+EMA
+####################
+Train metrics
+loss: 0.00045
+score: 0.99980
+auc: 0.99968
+MdAS: 0.99991
+Valid metrics
+loss: 0.00007
+auc: 1.00000
+MdAS: 1.00000
+EMA_loss: 0.00006
+EMA_score: 1.00000
+EMA_auc: 1.00000
+EMA_MdAS: 1.00000
+####################
+Elapsed time: 2min 12.1050seconds.
+====================
+Fold 0 inference
+====================
+====================
+Fold 1 inference
+====================
+====================
+Fold 2 inference
+====================
+====================
+Fold 3 inference
+====================
+====================
+Fold 4 inference
+====================
