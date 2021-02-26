@@ -1,0 +1,48 @@
+====================
+Fold 0 OOF
+====================
+Fold 0 AUC: 0.97086
+Fold 0 Multi-disease Avg Score: 0.76965
+Fold 0 Final score: 0.87026
+====================
+Fold 1 OOF
+====================
+Fold 1 AUC: 0.95881
+Fold 1 Multi-disease Avg Score: 0.77896
+Fold 1 Final score: 0.86889
+====================
+Fold 2 OOF
+====================
+Fold 2 AUC: 0.96662
+Fold 2 Multi-disease Avg Score: 0.74922
+Fold 2 Final score: 0.85792
+====================
+Fold 3 OOF
+====================
+Fold 3 AUC: 0.96971
+Fold 3 Multi-disease Avg Score: 0.74613
+Fold 3 Final score: 0.85792
+====================
+Fold 4 OOF
+====================
+Fold 4 AUC: 0.96169
+Fold 4 Multi-disease Avg Score: 0.76372
+Fold 4 Final score: 0.86271
+AUC: 0.96426
+Multi-disease Avg Score: 0.73345
+Final score: 0.84885
+====================
+Fold 0 inference
+====================
+====================
+Fold 1 inference
+====================
+====================
+Fold 2 inference
+====================
+====================
+Fold 3 inference
+====================
+====================
+Fold 4 inference
+====================
