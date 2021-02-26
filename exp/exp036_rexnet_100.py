@@ -382,7 +382,12 @@ class TimmModel(nn.Module):
         self.init_layer()
 
     def init_layer(self):
-        init_layer(self.base_model.classifier)
+        if hasattr(self.base_model, "classifier"):
+            init_layer(self.base_model.classifier)
+        elif hasattr(self.base_model, "fc"):
+            init_layer(self.base_model.fc)
+        elif hasattr(self.base_model, "head"):
+            init_layer(self.base_model.head.fc)
 
     def forward(self, x):
         return self.base_model(x)
