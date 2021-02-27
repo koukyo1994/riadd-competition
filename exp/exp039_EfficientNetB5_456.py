@@ -69,7 +69,7 @@ class CFG:
     ######################
     loader_params = {
         "train": {
-            "batch_size": 32,
+            "batch_size": 16,
             "num_workers": 20,
             "shuffle": True
         },
