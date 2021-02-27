@@ -98,7 +98,7 @@ class CFG:
     ######################
     # Model #
     ######################
-    base_model_name = "tf_efficientnet_b4_ns"
+    base_model_name = "tf_efficientnet_b6_ns"
     pooling = "GeM"
     pretrained = True
     num_classes = 29
