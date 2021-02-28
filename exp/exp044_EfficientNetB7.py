@@ -41,7 +41,7 @@ class CFG:
     oof = True
     inference = True
     folds = [0, 1, 2, 3, 4]
-    img_size = 600
+    img_size = 528
     main_metric = "epoch_score"
     minimize_metric = False
 
